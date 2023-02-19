@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Swirk application server",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "nodemon ./src/index.js"
   },
