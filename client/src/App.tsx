@@ -1,11 +1,16 @@
-import './App.scss';
+import { Route, Routes } from "react-router-dom";
 
-const App=()=> {
+import Auth from "./features/auth/components/Auth";
+
+import "./App.scss";
+
+const App = () => {
   return (
-    <div className="App">
-     Hello World
-    </div>
+    <Routes>
+      <Route path="/login" element={<Auth />} />
+      <Route path="/register" element={<Auth />} />
+    </Routes>
   );
-}
+};
 
 export default App;
