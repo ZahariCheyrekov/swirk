@@ -28,7 +28,9 @@ const Auth = () => {
           Log In
         </button>
 
-        <Link to={"/register"}>Sign up to Swirk</Link>
+        <Link to={"/register"} className="auth__form--link auth__link link">
+          Sign up to Swirk
+        </Link>
       </form>
     </main>
   );
