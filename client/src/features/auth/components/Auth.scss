@@ -18,7 +18,24 @@
     font-weight: 600;
   }
 
+  .label__password {
+    position: relative;
+
+    .fa-regular.fa-eye {
+      position: absolute;
+      font-size: 1.2rem;
+
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+
+      cursor: pointer;
+      color: $light-gray-color;
+    }
+  }
+
   .input {
+    width: 100%;
     padding: 0.8rem;
     font-size: 1.2rem;
 
