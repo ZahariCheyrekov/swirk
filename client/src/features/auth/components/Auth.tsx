@@ -7,6 +7,7 @@ const Auth = () => {
   const { pathname } = useLocation();
   const [isLogin, setIsLogin] = useState(true);
 
+
   useEffect(() => {
     if (pathname === "/login") {
       setIsLogin(true);
@@ -15,7 +16,6 @@ const Auth = () => {
     }
   }, [pathname]);
 
-  console.log(pathname, isLogin);
   return (
     <main className="main__auth">
       <form action="POST" className="main__auth--form auth__form">
@@ -23,18 +23,52 @@ const Auth = () => {
           {isLogin ? "Log in to Swirk" : "Register to Swirk"}
         </legend>
 
+        {!isLogin && (
+          <>
+            <input
+              type="text"
+              name="firstName"
+              placeholder="First name"
+              className="auth__form--input auth__firstName name input"
+            />
+
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Last name"
+              className="auth__form--input auth__lastName name input"
+            />
+          </>
+        )}
+
         <input
-          type="text"
+          type="email"
           name="email"
           placeholder="Email address"
           className="auth__form--input auth__email email input"
         />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          className="auth__form--input auth__password password input"
-        />
+
+        <label className="auth__label--password label__password">
+          <input
+            type={showPassword ? "text" : "password"}
+            name="password"
+            placeholder="Password"
+            className="auth__form--input auth__password password input"
+          />
+          <i className="fa-regular fa-eye"></i>
+        </label>
+
+        {!isLogin && (
+          <label className="auth__label--password label__password">
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              placeholder="Repeat password"
+              className="auth__form--input auth__password password input"
+            />
+            <i className="fa-regular fa-eye"></i>
+          </label>
+        )}
 
         <button
           type="submit"
