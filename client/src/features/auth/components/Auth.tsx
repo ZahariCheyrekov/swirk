@@ -6,7 +6,11 @@ import "./Auth.scss";
 const Auth = () => {
   const { pathname } = useLocation();
   const [isLogin, setIsLogin] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
 
+  const handleIconClick = () => {
+    setShowPassword((prevState) => !prevState);
+  };
 
   useEffect(() => {
     if (pathname === "/login") {
@@ -55,7 +59,7 @@ const Auth = () => {
             placeholder="Password"
             className="auth__form--input auth__password password input"
           />
-          <i className="fa-regular fa-eye"></i>
+          <i className="fa-regular fa-eye" onClick={handleIconClick}></i>
         </label>
 
         {!isLogin && (
@@ -66,7 +70,7 @@ const Auth = () => {
               placeholder="Repeat password"
               className="auth__form--input auth__password password input"
             />
-            <i className="fa-regular fa-eye"></i>
+            <i className="fa-regular fa-eye" onClick={handleIconClick}></i>
           </label>
         )}
 
