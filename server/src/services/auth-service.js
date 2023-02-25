@@ -1,7 +1,7 @@
-import User from '../models/User';
+import User from '../models/User.js';
 
 export const getUserByEmail = (email) => {
-    return User.find({ email });
+    return User.findOne({ email });
 }
 
 export const createUser = (userData) => {
