@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createPost } from "../api/post-api";
 
+import { createPost } from "../api/post-api";
 import { uploadImage } from "../services/uploadImage";
+import { getUserId } from "../../../services/localStorage";
 
 import "./CreatePost.scss";
 
@@ -40,6 +41,7 @@ const CreatePost = () => {
     const post = await createPost({
       postContent,
       imageSrc: imageUrl,
+      userId: getUserId(),
     });
 
     if (post) {
