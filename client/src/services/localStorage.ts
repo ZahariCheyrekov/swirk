@@ -11,6 +11,8 @@ export const removeUser = () => localStorage.removeItem(USER);
 
 export const getAccessToken = (): string | undefined => getUser()?.token;
 
+export const getUserId = (): string | undefined => getUser()?.id;
+
 export const getUser = (): UserInStorage | undefined => {
   const serializedUser = localStorage.getItem(USER);
 

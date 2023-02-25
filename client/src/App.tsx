@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
 import Auth from "./features/auth/components/Auth";
+import CreatePost from "./features/post/components/CreatePost";
 
 import "./App.scss";
 
@@ -9,6 +10,7 @@ const App = () => {
     <Routes>
       <Route path="/login" element={<Auth />} />
       <Route path="/register" element={<Auth />} />
+      <Route path="/create" element={<CreatePost />} />
     </Routes>
   );
 };

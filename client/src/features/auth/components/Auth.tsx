@@ -114,7 +114,7 @@ const Auth = () => {
 
         <button
           type="submit"
-          className="auth__form--button auth__button button"
+          className="auth__form--button auth__button button__element button"
           onClick={handleAuth}
         >
           {isLogin ? "Log In" : "Register"}
