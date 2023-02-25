@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { User } from "../../../interfaces/User";
 import { loginUser, registerUser } from "../services/auth-service";
@@ -7,6 +7,7 @@ import { loginUser, registerUser } from "../services/auth-service";
 import "./Auth.scss";
 
 const Auth = () => {
+  const navigate = useNavigate();
   const { pathname } = useLocation();
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
@@ -32,12 +33,15 @@ const Auth = () => {
   const handleAuth = async (ev: React.MouseEvent<HTMLButtonElement>) => {
     ev.preventDefault();
 
+    let user;
     if (isLogin) {
-      const user = await loginUser(userData);
-      console.log(user);
+      user = await loginUser(userData);
     } else {
-      const user = await registerUser(userData);
-      console.log(user);
+      user = await registerUser(userData);
+    }
+
+    if (user) {
+      navigate("/");
     }
   };
 
