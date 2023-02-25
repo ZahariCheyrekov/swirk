@@ -37,3 +37,39 @@ export const login = async (req, res) => {
         return res.status(500).json({ message: error });
     }
 }
+
+export const register = async (req, res) => {
+    const { firstName, lastName, email, password, repeatPassword } = req.body;
+
+    try {
+        const existingUser = await authService.getUserByEmail(email);
+
+        if (existingUser) {
+            return res.status(400).json({ message: USER_ALREADY_EXISTS });
+        }
+
+        if (password !== repeatPassword) {
+            return res.status(400).json({ message: PASSWORDS_DONT_MATCH });
+        }
+
+        const hashedPassword = await bcrypt.hash(password, SALT);
+
+
+        const fullName = `${firstName} ${lastName}`;
+        const newUser = await authService.createUser({ email, password: hashedPassword, fullName });
+
+        const token = signJwtToken({ email: newUser.email, id: newUser._id });
+
+        const result = {
+            id: newUser._id,
+            email: newUser.email,
+            fullName: newUser.fullName,
+            token: token
+        }
+
+        return res.status(200).json(result);
+
+    } catch (error) {
+        return res.status(500).json({ message: error });
+    }
+}
