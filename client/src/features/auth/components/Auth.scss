@@ -41,6 +41,10 @@
 
     border: 1px solid $light-gray-color;
     border-radius: 0.25rem;
+
+    &:focus {
+      box-shadow: 0 0 0.2rem $sky-blue-color;
+    }
   }
 
   .link {
