@@ -8,6 +8,7 @@ export interface User {
 
 export interface UserInStorage {
   fullName: string;
-  lastName: string;
-  accessToken: string;
+  email: string;
+  id: string;
+  token: string;
 }
