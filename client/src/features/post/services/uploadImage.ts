@@ -21,8 +21,5 @@ export const uploadImage = async (ev: React.FormEvent<HTMLFormElement>) => {
     body: formData,
   }).then((res) => res.json());
 
-  return {
-    imageUrl: data.secure_url,
-    data: data,
-  };
+  return data.secure_url;
 };
