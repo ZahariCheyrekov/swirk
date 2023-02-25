@@ -1,15 +1,44 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
+import { User } from "../../../interfaces/User";
+import { loginUser, registerUser } from "../services/auth-service";
+
 import "./Auth.scss";
 
 const Auth = () => {
   const { pathname } = useLocation();
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
+  const [userData, setUserData] = useState<User>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    repeatPassword: "",
+  });
 
   const handleIconClick = () => {
     setShowPassword((prevState) => !prevState);
+  };
+
+  const handleChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
+    setUserData((userData) => ({
+      ...userData,
+      [ev.target.name]: ev.target.value.trim(),
+    }));
+  };
+
+  const handleAuth = async (ev: React.MouseEvent<HTMLButtonElement>) => {
+    ev.preventDefault();
+
+    if (isLogin) {
+      const user = await loginUser(userData);
+      console.log(user);
+    } else {
+      const user = await registerUser(userData);
+      console.log(user);
+    }
   };
 
   useEffect(() => {
@@ -34,6 +63,7 @@ const Auth = () => {
               name="firstName"
               placeholder="First name"
               className="auth__form--input auth__firstName name input"
+              onChange={handleChange}
             />
 
             <input
@@ -41,6 +71,7 @@ const Auth = () => {
               name="lastName"
               placeholder="Last name"
               className="auth__form--input auth__lastName name input"
+              onChange={handleChange}
             />
           </>
         )}
@@ -50,6 +81,7 @@ const Auth = () => {
           name="email"
           placeholder="Email address"
           className="auth__form--input auth__email email input"
+          onChange={handleChange}
         />
 
         <label className="auth__label--password label__password">
@@ -58,6 +90,7 @@ const Auth = () => {
             name="password"
             placeholder="Password"
             className="auth__form--input auth__password password input"
+            onChange={handleChange}
           />
           <i className="fa-regular fa-eye" onClick={handleIconClick}></i>
         </label>
@@ -66,9 +99,10 @@ const Auth = () => {
           <label className="auth__label--password label__password">
             <input
               type={showPassword ? "text" : "password"}
-              name="password"
+              name="repeatPassword"
               placeholder="Repeat password"
               className="auth__form--input auth__password password input"
+              onChange={handleChange}
             />
             <i className="fa-regular fa-eye" onClick={handleIconClick}></i>
           </label>
@@ -77,6 +111,7 @@ const Auth = () => {
         <button
           type="submit"
           className="auth__form--button auth__button button"
+          onClick={handleAuth}
         >
           {isLogin ? "Log In" : "Register"}
         </button>
