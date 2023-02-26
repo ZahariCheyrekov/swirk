@@ -1,0 +1,72 @@
+@import "../variables.scss";
+
+.navigation__aside {
+  height: 100%;
+}
+
+.navigation__list {
+  margin-left: 4rem;
+  padding: 0.6rem 4rem 4rem;
+
+  max-width: 21rem;
+  height: 100%;
+  border-right: 2px solid $gray-hover-color;
+}
+
+.list__item {
+  margin-bottom: 0.6rem;
+  padding-left: 0.8rem;
+  border-radius: 1.4rem;
+}
+
+.article__img {
+  width: 8rem;
+  margin-bottom: 2rem;
+}
+
+.list__item:not(:last-child, :first-child):hover {
+  background-color: $gray-hover-color;
+}
+
+.link__wrapper {
+  color: unset;
+  font-size: 1.2rem;
+
+  .article {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    .title {
+      font-weight: 400;
+      margin: 0.8rem;
+    }
+
+    i {
+      font-size: 1.4rem;
+    }
+  }
+
+  &:focus {
+    .title,
+    i {
+      font-weight: 700;
+    }
+  }
+}
+
+.swirk__create .title {
+  margin-top: 2rem;
+  padding: 0.6rem 3rem;
+
+  border-radius: 2rem;
+  text-align: center;
+
+  background-color: $sky-blue-color;
+  color: $white-color;
+  transition: all ease-in-out 0.2s;
+
+  &:hover {
+    background-color: $blue-hover-color;
+  }
+}
