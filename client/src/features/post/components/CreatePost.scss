@@ -1,11 +1,11 @@
 @import "../../../variables.scss";
 @import "../../../scss/button.module.scss";
 
-.main__auth {
+.main__create {
   height: 100%;
 }
 
-.auth__form {
+.create__form {
   max-width: 600px;
   margin: 200px auto;
   padding: 2rem;
@@ -19,29 +19,19 @@
     font-weight: 600;
   }
 
-  .label__password {
-    position: relative;
-
-    .fa-regular.fa-eye {
-      position: absolute;
-      font-size: 1.2rem;
-
-      top: 50%;
-      right: 1rem;
-      transform: translateY(-50%);
-
-      cursor: pointer;
-      color: $light-gray-color;
-    }
-  }
-
-  .input {
+  .textarea {
     width: 100%;
+    min-height: 10rem;
+    max-height: 16rem;
+
     padding: 0.8rem;
     font-size: 1.2rem;
 
+    resize: vertical;
+    outline: none;
+
     border: 1px solid $light-gray-color;
-    border-radius: 0.25rem;
+    border-radius: 0.6rem;
 
     &:focus {
       box-shadow: 0 0 0.2rem $sky-blue-color;
