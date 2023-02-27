@@ -1,0 +1,62 @@
+@import "../../scss/variables.scss";
+
+.trends__section {
+  max-width: 28rem;
+  height: 100%;
+
+  margin-right: 4rem;
+  padding: 0.6rem 4rem 4rem 1.6rem;
+
+  overflow: auto;
+  border-left: 2px solid $gray-hover-color;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.trends__article {
+  background-color: $lighter-gray-color;
+  border-radius: 1rem;
+  padding: 1rem 0 0;
+
+  .heading {
+    margin-top: 0;
+    padding-left: 1rem;
+  }
+}
+
+.trends__li--item {
+  padding: 0.8rem;
+  transition: all ease-in-out 0.1s;
+
+  .trend__name {
+    margin: 0 0 0.2rem 0;
+  }
+
+  .heading__gray {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-weight: normal;
+    color: $gray-color;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: $gray-hover-color;
+  }
+
+  &:last-child {
+    padding: 1.2rem 1rem 1rem;
+
+    &:hover {
+      border-radius: 0 0 1rem 1rem;
+    }
+  }
+}
