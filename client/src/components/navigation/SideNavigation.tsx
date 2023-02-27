@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import swirkLogo from "../assets/swirk-dark.png";
+import swirkLogo from "../../assets/swirk-dark.png";
 
 import "./SideNavigation.scss";
 

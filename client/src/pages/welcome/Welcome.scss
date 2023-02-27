@@ -1,4 +1,4 @@
-@import "../../variables.scss";
+@import "../../scss/variables.scss";
 
 .main__welcome {
   display: flex;
@@ -32,7 +32,7 @@
     position: absolute;
     left: 50%;
     width: 34rem;
-    height: 24rem;
+    height: 10rem;
     top: 50%;
     transform: translate(-50%, -50%);
   }

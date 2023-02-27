@@ -1,4 +1,4 @@
-@import "../variables.scss";
+@import "../../scss/variables.scss";
 
 .navigation__aside {
   height: 100%;
@@ -13,7 +13,7 @@
   border-right: 2px solid $gray-hover-color;
 }
 
-.list__item {
+.navigation__li--item.list__item {
   margin-bottom: 0.6rem;
   padding-left: 0.8rem;
   border-radius: 1.4rem;
@@ -24,7 +24,7 @@
   margin-bottom: 2rem;
 }
 
-.list__item:not(:last-child, :first-child):hover {
+.navigation__li--item.list__item:not(:last-child, :first-child):hover {
   background-color: $gray-hover-color;
 }
 
