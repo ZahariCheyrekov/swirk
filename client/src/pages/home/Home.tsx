@@ -1,4 +1,4 @@
-import SideNavigation from "../../components/SideNavigation";
+import SideNavigation from "../../components/navigation/SideNavigation";
 
 import "./Home.scss";
 
