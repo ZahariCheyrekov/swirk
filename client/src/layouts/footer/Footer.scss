@@ -1,0 +1,63 @@
+@import "../../scss/variables.scss";
+
+.footer {
+  background-color: $sky-blue-color;
+  color: $white-color;
+  padding: 2.6rem;
+}
+
+.footer__section {
+  display: flex;
+  justify-content: space-between;
+
+  max-width: 80%;
+  margin: 0 auto;
+
+  .main__list {
+    display: flex;
+    gap: 6rem;
+  }
+}
+
+.footer__list--main .child {
+  .li__heading {
+    margin-bottom: 1.4rem;
+    font-size: 1.2rem;
+  }
+
+  .child__item {
+    margin: 0.5rem 0;
+
+    a {
+      color: $white-color;
+    }
+  }
+}
+
+.social__icons {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.6rem;
+
+  .child__item.icon__li {
+    margin: 0;
+  }
+
+  .social__link svg {
+    background-color: $white-color;
+    color: $sky-blue-color;
+
+    font-size: 2.2rem;
+    border-radius: 50%;
+    padding: 0.3rem;
+  }
+}
+
+.footer__list--item.shop {
+  width: 10rem;
+}
+
+.app__store,
+.google__play {
+  margin-bottom: 0.4rem;
+}
