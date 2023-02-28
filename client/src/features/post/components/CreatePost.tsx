@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { createPost } from "../api/post-api";
 import { uploadImage } from "../services/uploadImage";
 import { getUserId } from "../../../services/localStorage";
+import Footer from "../../../layouts/footer/Footer";
 
 import "./CreatePost.scss";
 
@@ -50,33 +51,36 @@ const CreatePost = () => {
   };
 
   return (
-    <main className="main__create">
-      <form
-        action="POST"
-        className="main__create--form create__form"
-        onSubmit={handleOnSubmit}
-      >
-        <legend className="create__form--legend legend">Create Post</legend>
-        <textarea
-          name="postContent"
-          placeholder="What do you think?"
-          className="create__form--textarea create__content content textarea"
-          onChange={handleContentChange}
-        />
-        <input
-          type="file"
-          name="file"
-          onChange={handleOnChange}
-          className="create__form--file create__file file"
-        />
-        <button
-          type="submit"
-          className="create__form--button create__button button__element button"
+    <>
+      <main className="main__create">
+        <form
+          action="POST"
+          className="main__create--form create__form"
+          onSubmit={handleOnSubmit}
         >
-          Create
-        </button>
-      </form>
-    </main>
+          <legend className="create__form--legend legend">Create Post</legend>
+          <textarea
+            name="postContent"
+            placeholder="What do you think?"
+            className="create__form--textarea create__content content textarea"
+            onChange={handleContentChange}
+          />
+          <input
+            type="file"
+            name="file"
+            onChange={handleOnChange}
+            className="create__form--file create__file file"
+          />
+          <button
+            type="submit"
+            className="create__form--button create__button button__element button"
+          >
+            Create
+          </button>
+        </form>
+      </main>
+      <Footer />
+    </>
   );
 };
 
