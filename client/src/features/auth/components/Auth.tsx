@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { User } from "../../../interfaces/User";
 import { loginUser, registerUser } from "../services/auth-service";
+import Footer from "../../../layouts/footer/Footer";
 
 import "./Auth.scss";
 
@@ -54,80 +55,83 @@ const Auth = () => {
   }, [pathname]);
 
   return (
-    <main className="main__auth">
-      <form action="POST" className="main__auth--form auth__form">
-        <legend className="auth__form--legend legend">
-          {isLogin ? "Log in to Swirk" : "Register to Swirk"}
-        </legend>
+    <>
+      <main className="main__auth">
+        <form action="POST" className="main__auth--form auth__form">
+          <legend className="auth__form--legend legend">
+            {isLogin ? "Log in to Swirk" : "Register to Swirk"}
+          </legend>
 
-        {!isLogin && (
-          <>
-            <input
-              type="text"
-              name="firstName"
-              placeholder="First name"
-              className="auth__form--input auth__firstName name input"
-              onChange={handleChange}
-            />
+          {!isLogin && (
+            <>
+              <input
+                type="text"
+                name="firstName"
+                placeholder="First name"
+                className="auth__form--input auth__firstName name input"
+                onChange={handleChange}
+              />
 
-            <input
-              type="text"
-              name="lastName"
-              placeholder="Last name"
-              className="auth__form--input auth__lastName name input"
-              onChange={handleChange}
-            />
-          </>
-        )}
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Last name"
+                className="auth__form--input auth__lastName name input"
+                onChange={handleChange}
+              />
+            </>
+          )}
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Email address"
-          className="auth__form--input auth__email email input"
-          onChange={handleChange}
-        />
-
-        <label className="auth__label--password label__password">
           <input
-            type={showPassword ? "text" : "password"}
-            name="password"
-            placeholder="Password"
-            className="auth__form--input auth__password password input"
+            type="email"
+            name="email"
+            placeholder="Email address"
+            className="auth__form--input auth__email email input"
             onChange={handleChange}
           />
-          <i className="fa-regular fa-eye" onClick={handleIconClick}></i>
-        </label>
 
-        {!isLogin && (
           <label className="auth__label--password label__password">
             <input
               type={showPassword ? "text" : "password"}
-              name="repeatPassword"
-              placeholder="Repeat password"
+              name="password"
+              placeholder="Password"
               className="auth__form--input auth__password password input"
               onChange={handleChange}
             />
             <i className="fa-regular fa-eye" onClick={handleIconClick}></i>
           </label>
-        )}
 
-        <button
-          type="submit"
-          className="auth__form--button auth__button button__element button"
-          onClick={handleAuth}
-        >
-          {isLogin ? "Log In" : "Register"}
-        </button>
+          {!isLogin && (
+            <label className="auth__label--password label__password">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="repeatPassword"
+                placeholder="Repeat password"
+                className="auth__form--input auth__password password input"
+                onChange={handleChange}
+              />
+              <i className="fa-regular fa-eye" onClick={handleIconClick}></i>
+            </label>
+          )}
 
-        <Link
-          to={isLogin ? "/register" : "/login"}
-          className="auth__form--link auth__link link"
-        >
-          {isLogin ? "Sign up to Swirk" : "Sign in to Swirk"}
-        </Link>
-      </form>
-    </main>
+          <button
+            type="submit"
+            className="auth__form--button auth__button button__element button"
+            onClick={handleAuth}
+          >
+            {isLogin ? "Log In" : "Register"}
+          </button>
+
+          <Link
+            to={isLogin ? "/register" : "/login"}
+            className="auth__form--link auth__link link"
+          >
+            {isLogin ? "Sign up to Swirk" : "Sign in to Swirk"}
+          </Link>
+        </form>
+      </main>
+      <Footer />
+    </>
   );
 };
 
