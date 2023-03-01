@@ -56,22 +56,34 @@ const Footer = () => {
           </ul>
           <ul className="footer__list--child child social__icons">
             <li className="footer__li--item child__item icon__li">
-              <Link to={"/"} className="footer__link--social social__link">
+              <Link
+                to={"https://www.facebook.com/"}
+                className="footer__link--social social__link"
+              >
                 <FacebookIcon />
               </Link>
             </li>
             <li className="footer__li--item child__item icon__li">
-              <Link to={"/"} className="footer__link--social social__link">
+              <Link
+                to={"https://twitter.com/"}
+                className="footer__link--social social__link"
+              >
                 <TwitterIcon />
               </Link>
             </li>
             <li className="footer__li--item child__item icon__li">
-              <Link to={"/"} className="footer__link--social social__link">
+              <Link
+                to={"https://www.instagram.com/"}
+                className="footer__link--social social__link"
+              >
                 <InstagramIcon />
               </Link>
             </li>
             <li className="footer__li--item child__item icon__li">
-              <Link to={"/"} className="footer__link--social social__link">
+              <Link
+                to={"https://www.linkedin.com/"}
+                className="footer__link--social social__link"
+              >
                 <LinkedInIcon />
               </Link>
             </li>
