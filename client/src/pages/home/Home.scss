@@ -1,3 +1,5 @@
+@import "../../scss/variables.scss";
+
 .main__home {
   display: flex;
   justify-content: space-between;
@@ -5,5 +7,11 @@
 
   .trends {
     flex-basis: 35%;
+
+    .search__section {
+      max-width: 24rem;
+      padding: 0.8rem 0 0.4rem 1.6rem;
+      border-left: 2px solid $gray-hover-color;
+    }
   }
 }
