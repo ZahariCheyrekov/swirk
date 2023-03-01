@@ -22,10 +22,9 @@
   .label__password {
     position: relative;
 
-    .fa-regular.fa-eye {
+    .visibility__icon {
       position: absolute;
-      font-size: 1.2rem;
-
+      
       top: 50%;
       right: 1rem;
       transform: translateY(-50%);
