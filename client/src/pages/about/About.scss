@@ -1,0 +1,23 @@
+@import "../../scss/variables.scss";
+
+.about__section {
+  width: 78%;
+  min-height: 100vh;
+
+  margin: 0 auto;
+  padding: 1.4rem;
+
+  .about__heading {
+    font-size: 2.4rem;
+    margin-bottom: 2.8rem;
+    color: $sky-blue-color;
+  }
+
+  .about__paragraph {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    letter-spacing: 0.05rem;
+    word-spacing: 0.1rem;
+    margin-bottom: 2rem;
+  }
+}
