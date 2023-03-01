@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
+import VisibilityIcon from "@mui/icons-material/Visibility";
+
 import { User } from "../../../interfaces/User";
 import { loginUser, registerUser } from "../services/auth-service";
 import Footer from "../../../layouts/footer/Footer";
@@ -98,7 +100,10 @@ const Auth = () => {
               className="auth__form--input auth__password password input"
               onChange={handleChange}
             />
-            <i className="fa-regular fa-eye" onClick={handleIconClick}></i>
+            <VisibilityIcon
+              className="auth__icon--visibility visibility__icon"
+              onClick={handleIconClick}
+            />
           </label>
 
           {!isLogin && (
@@ -110,7 +115,10 @@ const Auth = () => {
                 className="auth__form--input auth__password password input"
                 onChange={handleChange}
               />
-              <i className="fa-regular fa-eye" onClick={handleIconClick}></i>
+              <VisibilityIcon
+                className="auth__icon--visibility visibility__icon"
+                onClick={handleIconClick}
+              />
             </label>
           )}
 
