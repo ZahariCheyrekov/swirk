@@ -18,7 +18,7 @@ const Footer = () => {
           <ul className="footer__list--child child">
             <li className="footer__li--item li__heading">COMPANY</li>
             <li className="footer__li--item child__item">
-              <Link to={"/"}>About Us</Link>
+              <Link to={"/about"}>About Us</Link>
             </li>
             <li className="footer__li--item child__item">
               <Link to={"/"}>Careers</Link>
