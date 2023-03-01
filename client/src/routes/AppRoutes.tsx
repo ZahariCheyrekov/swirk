@@ -1,7 +1,9 @@
+
 import { Route, Routes } from "react-router-dom";
 
 import Welcome from "../pages/welcome/Welcome";
 import Home from "../pages/home/Home";
+import About from "../pages/about/About";
 import Auth from "../features/auth/components/Auth";
 import CreatePost from "../features/post/components/CreatePost";
 
@@ -10,6 +12,7 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/" element={<Welcome />} />
       <Route path="/home" element={<Home />} />
+      <Route path="/about" element={<About />} />
       <Route path="/login" element={<Auth />} />
       <Route path="/register" element={<Auth />} />
       <Route path="/create" element={<CreatePost />} />
