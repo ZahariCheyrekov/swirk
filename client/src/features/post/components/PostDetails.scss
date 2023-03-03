@@ -40,3 +40,31 @@
     }
   }
 }
+
+.article__reply {
+  display: flex;
+  border: 2px solid $gray-hover-color;
+  border-left: none;
+  border-right: none;
+  padding: 0.8rem;
+
+  .wrapper__img {
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+
+    .img__user {
+      border-radius: 50%;
+    }
+  }
+
+  .content__section {
+    margin-left: 0.8rem;
+
+    .heading__text {
+      margin-top: 0;
+      font-weight: normal;
+      color: $gray-color;
+    }
+  }
+}
