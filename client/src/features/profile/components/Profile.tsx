@@ -63,23 +63,17 @@ const Profile = () => {
             <h3 className="profile__heading--timelin timeline__text">Swirks</h3>
           </li>
           <li className="profile__li--timeline timeline">
-            <h3 className="profile__heading--timelin timeline__text">
-              Swirk likes
-            </h3>
+            <h3 className="profile__heading--timelin timeline__text">Liked</h3>
           </li>
           <li className="profile__li--timeline timeline">
             <h3 className="profile__heading--timelin timeline__text">
-              Swirk comments
+              Commented
             </h3>
           </li>
           <li className="profile__li--timeline timeline">
-            <h3 className="profile__heading--timelin timeline__text">
-              Swirks shared
-            </h3>
+            <h3 className="profile__heading--timelin timeline__text">Shared</h3>
           </li>
         </ul>
-
-        {/* render user posts */}
         <Post />
         <Post />
         <Post />
