@@ -123,4 +123,24 @@
 .timelines {
   display: flex;
   justify-content: space-around;
+
+  .timeline {
+    width: 100%;
+    text-align: center;
+  }
+
+  .timeline__text {
+    margin: 0;
+    padding: 1rem 0;
+
+    font-weight: 500;
+    font-size: 1rem;
+
+    cursor: pointer;
+    color: $black-color;
+
+    &:hover {
+      background-color: $gray-hover-color;
+    }
+  }
 }
