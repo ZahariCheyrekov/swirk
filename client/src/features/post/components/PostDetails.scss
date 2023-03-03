@@ -41,12 +41,17 @@
   }
 }
 
+.content__section {
+  width: 85%;
+}
+
 .article__reply {
   display: flex;
+  padding: 0.8rem;
+
   border: 2px solid $gray-hover-color;
   border-left: none;
   border-right: none;
-  padding: 0.8rem;
 
   .wrapper__img {
     width: 3.2rem;
@@ -66,5 +71,22 @@
       font-weight: normal;
       color: $gray-color;
     }
+  }
+}
+
+.form__reply {
+  width: 100%;
+
+  .textarea__reply {
+    width: 100%;
+    min-height: 4rem;
+    max-height: 10rem;
+
+    border: none;
+    outline: none;
+    padding: 0.2rem 0;
+
+    font-size: 1rem;
+    resize: vertical;
   }
 }
