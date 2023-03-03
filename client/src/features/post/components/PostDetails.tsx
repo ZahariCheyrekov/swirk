@@ -46,6 +46,7 @@ const PostDetails = () => {
             </span>
           </section>
         </article>
+        <Post/>
       </section>
       <section className="details__section--trends trends">
         <section className="search__section">
