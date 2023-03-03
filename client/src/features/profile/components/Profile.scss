@@ -85,9 +85,38 @@
       background-color: $lighter-gray-color;
     }
   }
+}
 
-  .user__info {
-    margin-top: 3rem;
+.user__info {
+  margin-top: 2.4rem;
+
+  .name {
+    margin: 0;
+  }
+
+  .nickname {
+    color: $gray-color;
+    font-weight: normal;
+    margin: 0;
+  }
+
+  .bio {
+    font-family: system-ui, sans-serif;
+  }
+
+  .wrapper__following {
+    display: flex;
+    gap: 1.2rem;
+
+    h4 {
+      margin: 0;
+
+      .following__text,
+      .followers__text {
+        font-weight: normal;
+        color: $gray-color;
+      }
+    }
   }
 }
 
