@@ -43,17 +43,19 @@ const Profile = () => {
           <div className="profile__wrapper--info user__info">
             <h2 className="profile__heading--name name">{dummyData.name}</h2>
             <h3 className="profile__heading--nickname nickname">
-              {dummyData.nickname}
+              @{dummyData.nickname}
             </h3>
             <p className="profile__paragrpah--bio bio">{dummyData.bio}</p>
-            <h3 className="profile__heading--followers heading__followers">
-              {dummyData.followers}{" "}
-              <span className="followers__text">Followers</span>
-            </h3>
-            <h3 className="profile__heading--following heading__following">
-              {dummyData.following}{" "}
-              <span className="following__text">Following</span>
-            </h3>
+            <div className="profile__wrapper--following wrapper__following">
+              <h4 className="profile__heading--followers heading__followers">
+                {dummyData.followers.length}{" "}
+                <span className="followers__text">Followers</span>
+              </h4>
+              <h4 className="profile__heading--following heading__following">
+                {dummyData.following.length}{" "}
+                <span className="following__text">Following</span>
+              </h4>
+            </div>
           </div>
         </section>
         <ul className="profile__list--timelines timelines">
@@ -62,17 +64,17 @@ const Profile = () => {
           </li>
           <li className="profile__li--timeline timeline">
             <h3 className="profile__heading--timelin timeline__text">
-              Swirk Likes
+              Swirk likes
             </h3>
           </li>
           <li className="profile__li--timeline timeline">
             <h3 className="profile__heading--timelin timeline__text">
-              Swirk Comments
+              Swirk comments
             </h3>
           </li>
           <li className="profile__li--timeline timeline">
             <h3 className="profile__heading--timelin timeline__text">
-              Swirks Shared
+              Swirks shared
             </h3>
           </li>
         </ul>
