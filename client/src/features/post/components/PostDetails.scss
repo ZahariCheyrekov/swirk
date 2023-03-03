@@ -48,10 +48,7 @@
 .article__reply {
   display: flex;
   padding: 0.8rem;
-
-  border: 2px solid $gray-hover-color;
-  border-left: none;
-  border-right: none;
+  border-bottom: 2px solid $gray-hover-color;
 
   .wrapper__img {
     width: 3.2rem;
@@ -76,6 +73,7 @@
 
 .form__reply {
   width: 100%;
+  margin-bottom: 0.4rem;
 
   .textarea__reply {
     width: 100%;
@@ -88,5 +86,29 @@
 
     font-size: 1rem;
     resize: vertical;
+  }
+}
+
+.span__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .photo__icon {
+    padding: 0.4rem;
+    font-size: 2.4rem;
+    border-radius: 50%;
+
+    cursor: pointer;
+    color: $sky-blue-color;
+
+    &:hover {
+      background-color: $comment-blue-color;
+    }
+  }
+
+  .button__element {
+    font-size: 1rem;
+    padding: 0.4rem 1rem;
   }
 }
