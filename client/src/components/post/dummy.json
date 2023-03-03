@@ -1,0 +1,25 @@
+{
+    "image": "https://res.cloudinary.com/dhcdh9u9h/image/upload/v1677363416/swirk/rf92ofpoxb8fgbl0fmel.jpg",
+    "name": "John Doe",
+    "nickname": "johndoe",
+    "time": "19h",
+    "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam a vero nostrum maxime ducimus ex, mollitia earum officia quod ut, quasi, accusantium consectetur libero cum ratione perspiciatis aspernatur deleniti modi! Laborum placeat officia, vel dicta accusamus odit dolores perferendis modi. Autem est ipsam corporis? Distinctio corporis illo quo neque illum, nobis blanditiis omnis tempora labore deserunt. Recusandae repellendus necessitatibus porro?",
+    "comments": [
+        "1",
+        "2",
+        "3"
+    ],
+    "reswirk": [
+        "1",
+        "2",
+        "3",
+        "4"
+    ],
+    "likes": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+    ]
+}
