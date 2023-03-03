@@ -1,0 +1,146 @@
+@import "../../../scss/variables.scss";
+
+.profile__main {
+  display: flex;
+  justify-content: space-between;
+
+  .trends {
+    flex-basis: 35%;
+
+    .search__section {
+      max-width: 24rem;
+      padding: 0.8rem 0 0.4rem 1.6rem;
+    }
+  }
+}
+
+.profile__section {
+  max-width: 40%;
+  border-left: 2px solid $gray-hover-color;
+  border-right: 2px solid $gray-hover-color;
+
+  .profile__info {
+    position: sticky;
+    width: 100%;
+
+    top: 0;
+    z-index: 10;
+    padding: 0.4rem 0.8rem;
+
+    background-color: rgba($white-color, 0.9);
+    backdrop-filter: blur(0.22rem);
+
+    .name {
+      margin: 0;
+    }
+
+    .swirks__number {
+      color: $light-gray-color;
+      font-weight: normal;
+    }
+  }
+}
+
+.profile__images {
+  position: relative;
+  height: 13.2rem;
+
+  .wrapper__img {
+    position: absolute;
+    max-width: 9rem;
+    max-height: 9rem;
+
+    background-color: $white-color;
+    border-radius: 50%;
+    padding: 0.3rem;
+
+    top: 100%;
+    left: 4%;
+    transform: translateY(-50%);
+
+    .profile__img {
+      border-radius: 50%;
+    }
+  }
+}
+
+.user__content {
+  padding: 0.8rem;
+
+  .profile__actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .edit__button {
+    padding: 0.46rem 1.2rem;
+    font-weight: bold;
+    font-size: 1rem;
+
+    background-color: $white-color;
+    border: 2px solid $gray-hover-color;
+    border-radius: 2rem;
+
+    &:hover {
+      background-color: $lighter-gray-color;
+    }
+  }
+}
+
+.user__info {
+  margin-top: 2.4rem;
+
+  .name {
+    margin: 0;
+  }
+
+  .nickname {
+    color: $gray-color;
+    font-weight: normal;
+    margin: 0;
+  }
+
+  .bio {
+    font-family: system-ui, sans-serif;
+  }
+
+  .wrapper__following {
+    display: flex;
+    gap: 1.2rem;
+
+    h4 {
+      margin: 0;
+
+      .following__text,
+      .followers__text {
+        font-weight: normal;
+        color: $gray-color;
+      }
+    }
+  }
+}
+
+.timelines {
+  display: flex;
+  justify-content: space-around;
+
+  .timeline {
+    width: 100%;
+    text-align: center;
+  }
+
+  .timeline__text {
+    margin: 0;
+    padding: 1rem 0;
+
+    font-weight: 500;
+    font-size: 1rem;
+
+    cursor: pointer;
+    color: $black-color;
+
+    &:hover {
+      background-color: $gray-hover-color;
+    }
+  }
+}

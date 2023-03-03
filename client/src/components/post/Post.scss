@@ -4,10 +4,8 @@
   display: flex;
   padding: 0.8rem;
 
-  border-top: 2px solid $gray-hover-color;
-  border-bottom: 2px solid $gray-hover-color;
-
   cursor: pointer;
+  border-top: 2px solid $gray-hover-color;
   transition: all ease-in-out 0.2s;
 
   &:hover {
