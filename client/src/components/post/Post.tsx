@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
@@ -7,8 +9,14 @@ import dummyData from "./dummy.json";
 import "./Post.scss";
 
 const Post = () => {
+  const navigate = useNavigate();
+
+  const handlePostClick = () => {
+    navigate(`/${dummyData.nickname}/${dummyData.postId}`);
+  };
+
   return (
-    <article className="post__article">
+    <article className="post__article" onClick={handlePostClick}>
       <aside className="post__aside aside__image">
         <img
           src={dummyData.image}
