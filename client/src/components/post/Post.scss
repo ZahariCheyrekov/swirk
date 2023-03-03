@@ -67,3 +67,34 @@
     }
   }
 }
+
+.action__item {
+  &:hover {
+    // comment
+    .action__comments {
+      color: $sky-blue-color;
+    }
+
+    .comment__icon {
+      background-color: $comment-blue-color;
+    }
+
+    // reswirk
+    .action__reswirks {
+      color: $green-color;
+    }
+
+    .reswirk__icon {
+      background-color: $light-green-color;
+    }
+
+    // like
+    .action__likes {
+      color: $pink-color;
+    }
+
+    .like__icon {
+      background-color: $light-pink-color;
+    }
+  }
+}
