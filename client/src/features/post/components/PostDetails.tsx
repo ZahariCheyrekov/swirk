@@ -20,20 +20,23 @@ const PostDetails = () => {
           <h2 className="details__headin--name name">Swirk</h2>
         </div>
         <Post />
-        <article className="details__article--reply">
-          <div className="details__wrapper--image">
-            <img src={dummyData.image} alt={dummyData.name} />
+        <article className="details__article--reply article__reply">
+          <div className="details__wrapper--image wrapper__img">
+            <img
+              src={dummyData.image}
+              alt={dummyData.name}
+              className="details__img--user img__user"
+            />
           </div>
-          <section className="details__section--content">
+          <section className="details__section--content content__section">
             <h3 className="details__heading--text heading__text">
               Replying to @{dummyData.nickname}
             </h3>
-            <form className="details__form--reply">
-              <input
-                type="text"
+            <form className="details__form--reply form__reply">
+              <textarea
                 placeholder="Swirk your reply"
-                className="details__input--reply"
-              />
+                className="details__textarea--reply textarea__reply"
+              ></textarea>
             </form>
             <span className="details__span--actions span__actions">
               <PhotoSizeSelectActualOutlinedIcon className="details__icon--photo photo__icon" />
