@@ -1,0 +1,28 @@
+{
+    "cover": "https://res.cloudinary.com/dhcdh9u9h/image/upload/v1677363416/swirk/rf92ofpoxb8fgbl0fmel.jpg",
+    "image": "https://res.cloudinary.com/dhcdh9u9h/image/upload/v1677363416/swirk/rf92ofpoxb8fgbl0fmel.jpg",
+    "name": "John Doe",
+    "nickname": "johndoe",
+    "bio": "This is the coolest bio ever",
+    "swirks": [
+        "1",
+        "2",
+        "3"
+    ],
+    "following": [
+        "1",
+        "2",
+        "3",
+        "1",
+        "2",
+        "3"
+    ],
+    "followers": [
+        "1",
+        "2",
+        "3",
+        "1",
+        "2",
+        "3"
+    ]
+}
