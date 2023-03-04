@@ -6,6 +6,7 @@ import About from "../pages/about/About";
 import Auth from "../features/auth/components/Auth";
 import CreatePost from "../features/post/components/CreatePost";
 import Explore from "../pages/explore/Explore";
+import Bookmarks from "../pages/bookmarks/Bookmarks";
 import Profile from "../features/profile/components/Profile";
 import PostDetails from "../features/post/components/PostDetails";
 
@@ -19,6 +20,7 @@ const AppRoutes = () => {
       <Route path="/register" element={<Auth />} />
       <Route path="/create" element={<CreatePost />} />
       <Route path="/explore" element={<Explore />} />
+      <Route path="/bookmarks" element={<Bookmarks />} />
       <Route path="/:nickname" element={<Profile />} />
       <Route path="/:nickname/:postId" element={<PostDetails />} />
     </Routes>
