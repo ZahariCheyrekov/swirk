@@ -1,0 +1,27 @@
+@import "../../scss/variables.scss";
+
+.footer__small {
+  color: $gray-color;
+
+  .footer__list {
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 1.4;
+
+    .item__small {
+      padding-right: 1rem;
+    }
+  }
+
+  .link {
+    color: unset;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .copy__span {
+    margin-top: 1rem;
+  }
+}
