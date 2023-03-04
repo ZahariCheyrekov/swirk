@@ -1,0 +1,37 @@
+@import "../../scss/variables.scss";
+
+.explore__main {
+  display: flex;
+  justify-content: space-between;
+
+  .trends {
+    flex-basis: 45%;
+
+    .search__section {
+      padding: 0.8rem 1.6rem 0.4rem 1.6rem;
+    }
+
+    .trends__section {
+      max-width: unset;
+      margin-top: 0.6rem;
+      margin-right: 0;
+      padding: 0;
+
+      .trends__article {
+        border-radius: 0;
+        background-color: unset;
+      }
+    }
+  }
+
+  .section__footer {
+    flex-basis: 30%;
+    padding: 0.8rem 1.6rem;
+  }
+}
+
+.explore__section {
+  width: 40%;
+  border-left: 2px solid $gray-hover-color;
+  border-right: 2px solid $gray-hover-color;
+}
