@@ -1,0 +1,36 @@
+@import "../../scss/variables.scss";
+
+.bubble__link {
+  color: unset;
+}
+
+.bubble__section {
+  display: flex;
+  justify-content: space-between;
+  align-items: self-start;
+  
+  padding: 0.4rem 0.6rem;
+  border-radius: 2rem;
+
+  &:hover {
+    background-color: $gray-hover-color;
+  }
+
+  .bubble__image {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    .img {
+      border-radius: 50%;
+    }
+  }
+
+  h4 {
+    margin: 0;
+  }
+
+  .heading__nickname {
+    font-weight: normal;
+    color: $gray-color;
+  }
+}
