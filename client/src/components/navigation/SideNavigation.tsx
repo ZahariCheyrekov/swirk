@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import swirkLogo from "../../assets/swirk-dark.png";
+import ProfileBubble from "../bubble/ProfileBubble";
 
 import "./SideNavigation.scss";
 
@@ -116,6 +117,9 @@ const SideNavigation = () => {
           >
             <h3 className="navigation__title--item title__item title">Swirk</h3>
           </Link>
+        </li>
+        <li className="navigation__li--item profile__bubble--link">
+          <ProfileBubble />
         </li>
       </ul>
     </aside>

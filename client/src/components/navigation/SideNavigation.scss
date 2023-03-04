@@ -7,10 +7,14 @@
 
 .navigation__list {
   margin-left: 4rem;
-  padding: 0.6rem 4rem 4rem;
+  padding: 0rem 4rem;
 
   max-width: 21rem;
   height: 100%;
+
+  .profile__bubble--link {
+    margin-top: 3.8rem;
+  }
 }
 
 .navigation__li--item.list__item {
@@ -24,7 +28,7 @@
   margin-bottom: 2rem;
 }
 
-.navigation__li--item.list__item:not(:last-child, :first-child):hover {
+.navigation__li--item.list__item:not(:nth-child(9), :first-child):hover {
   background-color: $gray-hover-color;
 }
 

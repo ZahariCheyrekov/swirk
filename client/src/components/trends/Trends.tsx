@@ -1,5 +1,6 @@
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Link } from "react-router-dom";
+
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
 import "./Trends.scss";
 
