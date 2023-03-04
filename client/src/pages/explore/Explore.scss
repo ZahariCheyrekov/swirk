@@ -1,0 +1,48 @@
+@import "../../scss/variables.scss";
+
+.explore__main {
+  display: flex;
+  justify-content: space-between;
+
+  .trends {
+    flex-basis: 45%;
+
+    .search__section {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+
+      padding: 0.8rem 1.2rem 0.8rem 1.2rem;
+      background-color: rgba($white-color, 0.9);
+      backdrop-filter: blur(0.22rem);
+    }
+
+    .trends__section {
+      max-width: unset;
+      margin-top: 0.6rem;
+      margin-right: 0;
+      padding: 0;
+
+      .trends__article {
+        border-radius: 0;
+        background-color: unset;
+      }
+    }
+  }
+
+  .section__footer {
+    flex-basis: 30%;
+    padding: 0.8rem 1.6rem;
+
+    .footer__small {
+      position: sticky;
+      top: 0.8rem;
+    }
+  }
+}
+
+.explore__section {
+  width: 40%;
+  border-left: 2px solid $gray-hover-color;
+  border-right: 2px solid $gray-hover-color;
+}
