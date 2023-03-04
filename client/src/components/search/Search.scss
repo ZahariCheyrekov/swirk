@@ -1,5 +1,11 @@
 @import "../../scss/variables.scss";
 
+.search__section {
+  position: sticky;
+  top: 0;
+  background-color: $white-color;
+}
+
 .search__form {
   position: relative;
 
