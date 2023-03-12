@@ -12,8 +12,6 @@ const EditProfile = () => {
   const handleOnChange = (changeEvent: React.ChangeEvent<HTMLInputElement>) => {
     const reader = new FileReader();
 
-    console.log(changeEvent.target.className.includes("profile__cover"));
-
     reader.onload = function (onLoadEvent) {
       if (onLoadEvent.target) {
         if (changeEvent.target.className.includes("profile__cover")) {
@@ -33,8 +31,6 @@ const EditProfile = () => {
     }
   };
 
-  console.log("Img cover:", imgCover, "Img profile:", profileImg);
-
   const handleOnSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
 
@@ -43,7 +39,6 @@ const EditProfile = () => {
       imageUrl = await uploadImage(ev);
     }
 
-    console.log(imageUrl);
     // TODO: Create implementation for user edit
   };
 
