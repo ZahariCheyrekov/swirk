@@ -2,7 +2,6 @@
 
 .main__edit {
   padding: 0.2rem;
-  background-color: $black-color;
 }
 
 .edit__section {
@@ -12,6 +11,7 @@
 
   background-color: $white-color;
   border-radius: 1.6rem;
+  border: 0.1rem solid $gray-hover-color;
   position: relative;
 
   .edit__heading {
