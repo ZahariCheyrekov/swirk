@@ -5,6 +5,8 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 
 import { User } from "../../../interfaces/User";
 import { loginUser, registerUser } from "../services/auth-service";
+
+import Navigation from "../../../layouts/nav/Navigation";
 import Footer from "../../../layouts/footer/Footer";
 
 import "./Auth.scss";
@@ -58,6 +60,7 @@ const Auth = () => {
 
   return (
     <>
+      <Navigation />
       <main className="main__auth">
         <form action="POST" className="main__auth--form auth__form">
           <legend className="auth__form--legend legend">
