@@ -1,8 +1,52 @@
+import { useState } from "react";
+
+import { uploadImage } from "../../post/services/uploadImage";
 import Footer from "../../../layouts/footer/Footer";
 
 import "./EditProfile.scss";
 
 const EditProfile = () => {
+  const [imgCover, setImgCover] = useState<any>("");
+  const [profileImg, setProfileImg] = useState<any>("");
+
+  const handleOnChange = (changeEvent: React.ChangeEvent<HTMLInputElement>) => {
+    const reader = new FileReader();
+
+    console.log(changeEvent.target.className.includes("profile__cover"));
+
+    reader.onload = function (onLoadEvent) {
+      if (onLoadEvent.target) {
+        if (changeEvent.target.className.includes("profile__cover")) {
+          setImgCover(
+            onLoadEvent.target.result !== null ? onLoadEvent.target.result : ""
+          );
+        } else {
+          setProfileImg(
+            onLoadEvent.target.result !== null ? onLoadEvent.target.result : ""
+          );
+        }
+      }
+    };
+
+    if (changeEvent.target.files) {
+      reader.readAsDataURL(changeEvent.target.files[0]);
+    }
+  };
+
+  console.log("Img cover:", imgCover, "Img profile:", profileImg);
+
+  const handleOnSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
+    ev.preventDefault();
+
+    let imageUrl = "";
+    if (profileImg) {
+      imageUrl = await uploadImage(ev);
+    }
+
+    console.log(imageUrl);
+    // TODO: Create implementation for user edit
+  };
+
   return (
     <>
       <main className="main__edit">
@@ -12,27 +56,41 @@ const EditProfile = () => {
             <input
               type="file"
               name="file"
-              className="edit__form--file edit__file file"
+              className="edit__form--file edit__file file profile__cover"
+              onChange={handleOnChange}
             />
             <img
-              src="https://res.cloudinary.com/dhcdh9u9h/image/upload/v1677363416/swirk/rf92ofpoxb8fgbl0fmel.jpg"
+              src={
+                imgCover
+                  ? imgCover
+                  : "https://res.cloudinary.com/dhcdh9u9h/image/upload/v1677363416/swirk/rf92ofpoxb8fgbl0fmel.jpg"
+              }
               alt="John Doe"
               className="edit__img--background img__background"
             />
             <div className="profile__image--wrapper image__wrapper">
               <img
-                src="https://res.cloudinary.com/dhcdh9u9h/image/upload/v1677363416/swirk/rf92ofpoxb8fgbl0fmel.jpg"
+                src={
+                  profileImg
+                    ? profileImg
+                    : "https://res.cloudinary.com/dhcdh9u9h/image/upload/v1677363416/swirk/rf92ofpoxb8fgbl0fmel.jpg"
+                }
                 alt="John Doe"
                 className="edit__img--photo img__photo"
               />
               <input
                 type="file"
                 name="file"
-                className="edit__form--file edit__file file"
+                className="edit__form--file edit__file file profile__picture"
+                onChange={handleOnChange}
               />
             </div>
           </article>
-          <form action="POST" className="edit__profile--form edit__form">
+          <form
+            action="POST"
+            className="edit__profile--form edit__form"
+            onSubmit={handleOnSubmit}
+          >
             <input
               type="text"
               name="name"
@@ -48,7 +106,10 @@ const EditProfile = () => {
               <button className="edit__button--cancel edit__button cancel">
                 Cancel
               </button>
-              <button className="edit__button--save edit__button save">
+              <button
+                className="edit__button--save edit__button save"
+                type="submit"
+              >
                 Save
               </button>
             </span>
