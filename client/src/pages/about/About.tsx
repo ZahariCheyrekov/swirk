@@ -1,3 +1,4 @@
+import Navigation from "../../layouts/nav/Navigation";
 import Footer from "../../layouts/footer/Footer";
 
 import "./About.scss";
@@ -5,6 +6,7 @@ import "./About.scss";
 const About = () => {
   return (
     <>
+      <Navigation />
       <main className="about__main">
         <section className="about__section">
           <h1 className="about__heading">About Swirk</h1>
