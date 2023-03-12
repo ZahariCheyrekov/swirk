@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { createPost } from "../api/post-api";
 import { uploadImage } from "../services/uploadImage";
 import { getUserId } from "../../../services/localStorage";
+
+import Navigation from "../../../layouts/nav/Navigation";
 import Footer from "../../../layouts/footer/Footer";
 
 import "./CreatePost.scss";
@@ -52,6 +54,7 @@ const CreatePost = () => {
 
   return (
     <>
+      <Navigation />
       <main className="main__create">
         <form
           action="POST"
