@@ -8,6 +8,7 @@ import CreatePost from "../features/post/components/CreatePost";
 import Explore from "../pages/explore/Explore";
 import Bookmarks from "../pages/bookmarks/Bookmarks";
 import Profile from "../features/profile/components/Profile";
+import EditProfile from "../features/edit/components/EditProfile";
 import PostDetails from "../features/post/components/PostDetails";
 
 const AppRoutes = () => {
@@ -22,6 +23,7 @@ const AppRoutes = () => {
       <Route path="/explore" element={<Explore />} />
       <Route path="/bookmarks" element={<Bookmarks />} />
       <Route path="/:nickname" element={<Profile />} />
+      <Route path="/:nickname/edit" element={<EditProfile />} />
       <Route path="/:nickname/:postId" element={<PostDetails />} />
     </Routes>
   );
