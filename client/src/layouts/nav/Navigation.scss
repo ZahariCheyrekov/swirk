@@ -1,0 +1,30 @@
+@import "../../scss/variables.scss";
+
+.navigation__section {
+  box-shadow: 0 0.25rem 0.25rem $gray-hover-color;
+}
+
+.navigation__nav {
+  display: flex;
+  justify-content: space-between;
+
+  max-width: 78%;
+  margin: 0 auto;
+  padding: 1rem 0.8rem;
+
+  .navigation__article {
+    max-width: 10rem;
+
+    .img__logo {
+      object-fit: fill;
+    }
+  }
+
+  .nav__list {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+
+    font-size: 1.2rem;
+  }
+}
