@@ -1,4 +1,4 @@
-export interface User {
+export interface IUser {
   firstName: string;
   lastName: string;
   email: string;
@@ -6,7 +6,7 @@ export interface User {
   repeatPassword: string;
 }
 
-export interface UserInStorage {
+export interface IUserInStorage {
   fullName: string;
   email: string;
   id: string;

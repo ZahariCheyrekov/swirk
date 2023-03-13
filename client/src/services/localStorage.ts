@@ -1,7 +1,7 @@
 import { USER } from "../constants/app";
-import { UserInStorage } from "../interfaces/User";
+import { IUserInStorage } from "../interfaces/User";
 
-export const saveUser = (user: UserInStorage) => {
+export const saveUser = (user: IUserInStorage) => {
   if (user.token) {
     localStorage.setItem(USER, JSON.stringify(user));
   }
@@ -13,11 +13,11 @@ export const getAccessToken = (): string | undefined => getUser()?.token;
 
 export const getUserId = (): string | undefined => getUser()?.id;
 
-export const getUser = (): UserInStorage | undefined => {
+export const getUser = (): IUserInStorage | undefined => {
   const serializedUser = localStorage.getItem(USER);
 
   if (serializedUser) {
-    const user: UserInStorage = JSON.parse(serializedUser);
+    const user: IUserInStorage = JSON.parse(serializedUser);
     return user;
   }
 };

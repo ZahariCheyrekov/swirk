@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import VisibilityIcon from "@mui/icons-material/Visibility";
 
-import { User } from "../../../interfaces/User";
+import { IUser } from "../../../interfaces/User";
 import { loginUser, registerUser } from "../services/auth-service";
 
 import Navigation from "../../../layouts/nav/Navigation";
@@ -16,7 +16,7 @@ const Auth = () => {
   const { pathname } = useLocation();
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
-  const [userData, setUserData] = useState<User>({
+  const [userData, setUserData] = useState<IUser>({
     firstName: "",
     lastName: "",
     email: "",
