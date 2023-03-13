@@ -1,5 +1,10 @@
 export interface IPost {
+  _id: string;
   postContent: string;
-  imageSrc: String | ArrayBuffer | null;
+  imageSrc: any;
+  username: string;
   userId: string | undefined;
+  comments: Array<string>;
+  likes: Array<string>;
+  reswirks: Array<string>;
 }
