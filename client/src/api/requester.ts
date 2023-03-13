@@ -13,7 +13,7 @@ import {
 export const request = async (
   method: HttpMethods,
   url: string,
-  data: Object
+  data?: Object
 ) => {
   const options: any = {
     method,
