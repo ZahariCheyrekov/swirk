@@ -8,7 +8,9 @@ export interface IUser {
 
 export interface IUserInStorage {
   fullName: string;
+  nickname: string;
   email: string;
   id: string;
   token: string;
+  profilePicture: string;
 }
