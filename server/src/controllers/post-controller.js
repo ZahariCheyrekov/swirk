@@ -13,10 +13,12 @@ export const getPosts = async (req, res) => {
 }
 
 export const createPost = async (req, res) => {
-    const { postContent, imageSrc, userId } = req.body;
+    const { postContent, imageSrc, profilePicture, userName, nickname, userId } = req.body;
 
     try {
-        const post = await postService.createPost({ postContent, imageSrc }, userId);
+        const post = await postService.createPost({
+            postContent, imageSrc, userId, profilePicture, userName, nickname
+        }, userId);
 
         return res.status(201).json(post);
 
