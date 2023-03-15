@@ -50,6 +50,12 @@ const userSchema = mongoose.Schema({
             ref: 'Post'
         }
     ],
+    reswirkedPosts: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'Post'
+        }
+    ],
 });
 
 const User = mongoose.model('User', userSchema);

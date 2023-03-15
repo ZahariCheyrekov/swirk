@@ -50,7 +50,43 @@ export const dislikePost = async (req, res) => {
         const response = {
             post: {
                 postId: postId,
-                removedLikeFrom: userId
+                removedLikeBy: userId
+            }
+        }
+        return res.status(200).json(response);
+
+    } catch (error) {
+        return res.status(500).json({ message: error });
+    }
+}
+
+export const reswirkPost = async (req, res) => {
+    const { postId, userId } = req.body;
+
+    try {
+        const post = await postService.reswirk(postId, userId);
+        const response = {
+            post: {
+                postId: postId,
+                reswirkedBy: userId
+            }
+        }
+        return res.status(200).json(response);
+
+    } catch (error) {
+        return res.status(500).json({ message: error });
+    }
+}
+
+export const undoReswirk = async (req, res) => {
+    const { postId, userId } = req.body;
+
+    try {
+        const post = await postService.removeReswirk(postId, userId);
+        const response = {
+            post: {
+                postId: postId,
+                removedReswirkBy: userId
             }
         }
         return res.status(200).json(response);
