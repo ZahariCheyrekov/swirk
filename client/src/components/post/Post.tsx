@@ -5,15 +5,25 @@ import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 
 import dummyData from "./dummy.json";
-import { IPost } from "../../interfaces/Post";
+import { IPostCreated } from "../../interfaces/Post";
+import { likePost } from "../../api/globalAPI";
+import { getUser } from "../../services/localStorage";
 
 import "./Post.scss";
 
-const Post = ({ post }: { post: IPost }) => {
+const Post = ({ post }: { post: IPostCreated }) => {
   const navigate = useNavigate();
 
   const handlePostClick = () => {
     navigate(`/${dummyData.nickname}/${dummyData.postId}`);
+  };
+
+  const handlePostLike = async () => {
+    const user = getUser();
+
+    if (user) {
+      await likePost(post?._id, user.id);
+    }
   };
 
   return (
@@ -48,7 +58,7 @@ const Post = ({ post }: { post: IPost }) => {
                 </span>
               </span>
             </li>
-            <li className="post__li--item action__item">
+            <li className="post__li--item action__item reswirk">
               <span className="post__span--action action__reswirks swirks">
                 <ShareOutlinedIcon className="post__icon--reswirk reswirk__icon post__icon" />
                 <span className="post__span--reswirkscount reswirks__count">
@@ -56,7 +66,10 @@ const Post = ({ post }: { post: IPost }) => {
                 </span>
               </span>
             </li>
-            <li className="post__li--item action__item">
+            <li
+              className="post__li--item action__item like"
+              onClick={handlePostLike}
+            >
               <span className="post__span--action action__likes likes">
                 <FavoriteBorderOutlinedIcon className="post__icon--like like__icon post__icon" />
                 <span className="post__span--likescount likes__count">
