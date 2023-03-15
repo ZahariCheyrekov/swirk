@@ -54,7 +54,7 @@ const CreatePost = () => {
       });
 
       if (post) {
-        navigate("/");
+        navigate("/home");
       }
     }
   };
