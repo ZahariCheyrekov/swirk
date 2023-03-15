@@ -23,3 +23,11 @@ export const removeUserLike = (userId, postId) => {
         { runValidators: true }
     );
 }
+
+export const removeUserReswirk = (userId, postId) => {
+    return User.findByIdAndUpdate(
+        { _id: userId },
+        { $pull: { reswirkedPosts: postId } },
+        { runValidators: true }
+    );
+}
