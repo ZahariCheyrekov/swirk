@@ -6,6 +6,12 @@ const userSchema = mongoose.Schema({
         minLength: [2, 'Full name should be at least 4 characters long'],
         required: [true, 'Full name is required']
     },
+    nickname: {
+        type: String,
+        unique: [true, 'Nickname is already in user'],
+        minLength: [2, 'Nickname should be at least 4 characters long'],
+        required: [true, 'Nickname is required']
+    },
     email: {
         type: String,
         unique: [true, 'Email is already in use'],
@@ -30,6 +36,7 @@ const userSchema = mongoose.Schema({
     },
     profilePicture: {
         type: String,
+        default: ""
     },
     createdPosts: [
         {

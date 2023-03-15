@@ -24,8 +24,9 @@
 }
 
 .post__summary {
-  color: $gray-color;
+  width: 100%;
   margin-left: 0.8rem;
+  color: $gray-color;
 
   .article__user {
     display: flex;

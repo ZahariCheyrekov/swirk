@@ -28,6 +28,8 @@ export const login = async (req, res) => {
             id: existingUser._id,
             email: existingUser.email,
             fullName: existingUser.fullName,
+            nickname: existingUser.nickname,
+            profilePicture: existingUser.profilePicture,
             token: token
         }
 
@@ -56,7 +58,9 @@ export const register = async (req, res) => {
 
 
         const fullName = `${firstName} ${lastName}`;
-        const newUser = await authService.createUser({ email, password: hashedPassword, fullName });
+        const nickname = fullName.toLowerCase().split(' ').join('');
+        console.log(nickname)
+        const newUser = await authService.createUser({ email, password: hashedPassword, fullName, nickname });
 
         const token = signJwtToken({ email: newUser.email, id: newUser._id });
 
@@ -64,8 +68,12 @@ export const register = async (req, res) => {
             id: newUser._id,
             email: newUser.email,
             fullName: newUser.fullName,
+            nickname: newUser.nickname,
+            profilePicture: newUser.profilePicture,
             token: token
         }
+
+        console.log(result)
 
         return res.status(200).json(result);
 

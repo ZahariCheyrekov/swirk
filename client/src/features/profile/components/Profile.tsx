@@ -1,5 +1,4 @@
 import SideNavigation from "../../../components/navigation/SideNavigation";
-import Post from "../../../components/post/Post";
 import Search from "../../../components/search/Search";
 import Trends from "../../../components/trends/Trends";
 
@@ -74,10 +73,6 @@ const Profile = () => {
             <h3 className="profile__heading--timelin timeline__text">Shared</h3>
           </li>
         </ul>
-        <Post />
-        <Post />
-        <Post />
-        <Post />
       </section>
       <section className="profile__section--trends trends">
         <section className="search__section">
