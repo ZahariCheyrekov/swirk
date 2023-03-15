@@ -22,6 +22,18 @@ export const likePost = async (postId, userId) => {
     );
 
     await userService.likeUserPost(userId, postId);
-    
+
+    return post;
+}
+
+export const removePostLike = async (postId, userId) => {
+    const post = await Post.findByIdAndUpdate(
+        { _id: postId },
+        { $pull: { likes: userId } },
+        { runValidators: true }
+    );
+
+    await userService.removeUserLike(userId, postId);
+
     return post;
 }
