@@ -6,7 +6,12 @@ import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 
 import { IPostCreated } from "../../interfaces/Post";
-import { likePost, dislikePost, undoReswirk } from "../../api/globalAPI";
+import {
+  likePost,
+  dislikePost,
+  undoReswirk,
+  reswirkPost,
+} from "../../api/globalAPI";
 import { getUser } from "../../services/localStorage";
 
 import "./Post.scss";
@@ -29,7 +34,6 @@ const Post = ({ post }: { post: IPostCreated }) => {
 
     if (user) {
       const isLiked = postLikes.some((like) => like === user.id);
-      console.log(user.id, isLiked);
 
       if (isLiked) {
         const filteredLikes = postLikes.filter((like) => like !== user.id);
@@ -50,8 +54,7 @@ const Post = ({ post }: { post: IPostCreated }) => {
     const user = getUser();
 
     if (user) {
-      const isReswirked = postLikes.some((reswirk) => reswirk === user.id);
-      console.log(user.id, isReswirked);
+      const isReswirked = postReswirks.some((reswirk) => reswirk === user.id);
 
       if (isReswirked) {
         const filteredReswirks = postReswirks.filter(
@@ -60,8 +63,8 @@ const Post = ({ post }: { post: IPostCreated }) => {
         setPostReswirks([...filteredReswirks]);
         undoReswirk(post._id, user.id);
       } else {
-        //   setPostLikes((likes) => [...likes, user.id]);
-        //   likePost(post._id, user.id);
+        setPostReswirks((reswirks) => [...reswirks, user.id]);
+        reswirkPost(post._id, user.id);
       }
     }
   };
@@ -105,7 +108,7 @@ const Post = ({ post }: { post: IPostCreated }) => {
               <span className="post__span--action action__reswirks swirks">
                 <ShareOutlinedIcon className="post__icon--reswirk reswirk__icon post__icon" />
                 <span className="post__span--reswirkscount reswirks__count">
-                  {post?.reswirks?.length}
+                  {postReswirks.length}
                 </span>
               </span>
             </li>
