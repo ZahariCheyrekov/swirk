@@ -6,23 +6,39 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 
 import dummyData from "./dummy.json";
 import { IPostCreated } from "../../interfaces/Post";
-import { likePost } from "../../api/globalAPI";
+import { dislikePost, likePost } from "../../api/globalAPI";
 import { getUser } from "../../services/localStorage";
 
 import "./Post.scss";
+import { useState } from "react";
 
 const Post = ({ post }: { post: IPostCreated }) => {
   const navigate = useNavigate();
+  const [postLikes, setPostLikes] = useState<string[]>(post.likes);
 
   const handlePostClick = () => {
-    navigate(`/${dummyData.nickname}/${dummyData.postId}`);
+    // navigate(`/${dummyData.nickname}/${dummyData.postId}`);
   };
 
-  const handlePostLike = async () => {
+  const handlePostLike = async (
+    ev: React.MouseEvent<HTMLLIElement, MouseEvent>
+  ) => {
+    ev.preventDefault();
+
     const user = getUser();
 
     if (user) {
-      await likePost(post?._id, user.id);
+      const isLiked = postLikes.some((like) => like === user.id);
+      console.log(user.id, isLiked);
+
+      if (isLiked) {
+        const filteredLikes = postLikes.filter((like) => like !== user.id);
+        setPostLikes([...filteredLikes]);
+        dislikePost(post._id, user.id);
+      } else {
+        setPostLikes((likes) => [...likes, user.id]);
+        likePost(post._id, user.id);
+      }
     }
   };
 
@@ -73,7 +89,7 @@ const Post = ({ post }: { post: IPostCreated }) => {
               <span className="post__span--action action__likes likes">
                 <FavoriteBorderOutlinedIcon className="post__icon--like like__icon post__icon" />
                 <span className="post__span--likescount likes__count">
-                  {post?.likes?.length}
+                  {postLikes.length}
                 </span>
               </span>
             </li>
