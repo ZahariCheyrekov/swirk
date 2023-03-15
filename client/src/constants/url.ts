@@ -5,3 +5,4 @@ export const REGISTER_URL = `${BASE_URL}/register`;
 
 export const GET_POSTS_URL = `${BASE_URL}/posts`;
 export const CREATE_POST_URL = `${BASE_URL}/create`;
+export const LIKE_POST_URL = `${BASE_URL}/posts/like`;
