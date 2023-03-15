@@ -37,3 +37,15 @@ export const removePostLike = async (postId, userId) => {
 
     return post;
 }
+
+export const removeReswirk = async (postId, userId) => {
+    const post = await Post.findByIdAndUpdate(
+        { _id: postId },
+        { $pull: { reswirks: userId } },
+        { runValidators: true }
+    );
+
+    await userService.removeUserReswirk(userId, postId);
+
+    return post;
+}
