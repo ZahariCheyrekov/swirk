@@ -5,20 +5,20 @@ import Post from "../../components/post/Post";
 import Search from "../../components/search/Search";
 import Trends from "../../components/trends/Trends";
 
-import { IPost } from "../../interfaces/Post";
+import { IPostCreated } from "../../interfaces/Post";
 import { getPosts } from "../../api/globalAPI";
 
 import "./Home.scss";
 
 const Home = () => {
-  const [posts, setPosts] = useState<IPost[]>([]);
+  const [posts, setPosts] = useState<IPostCreated[]>([]);
 
   useEffect(() => {
     fetchPosts();
   }, []);
 
   const fetchPosts = async () => {
-    const posts: IPost[] = await getPosts();
+    const posts: IPostCreated[] = await getPosts();
     setPosts([...posts]);
   };
 
@@ -28,7 +28,7 @@ const Home = () => {
         <SideNavigation />
       </section>
       <section className="home__posts">
-        {posts.map((post: IPost) => {
+        {posts.map((post: IPostCreated) => {
           return <Post key={post._id} post={post} />;
         })}
       </section>

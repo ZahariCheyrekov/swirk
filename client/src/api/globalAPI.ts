@@ -1,6 +1,10 @@
 import * as requester from "./requester";
+import * as urls from "../constants/url";
 
-import { GET_POSTS_URL } from "../constants/url";
+export const getPosts = () => requester.get(urls.GET_POSTS_URL);
 
+export const likePost = (postId: string, userId: string) =>
+  requester.post(urls.LIKE_POST_URL, { postId, userId });
 
-export const getPosts = () => requester.get(GET_POSTS_URL);
+export const dislikePost = (postId: string, userId: string) =>
+  requester.del(urls.DISLIKE_POST_URL, { postId, userId });
