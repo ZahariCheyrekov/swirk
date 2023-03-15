@@ -1,20 +1,20 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 
-import dummyData from "./dummy.json";
 import { IPostCreated } from "../../interfaces/Post";
-import { dislikePost, likePost } from "../../api/globalAPI";
+import { likePost, dislikePost, undoReswirk } from "../../api/globalAPI";
 import { getUser } from "../../services/localStorage";
 
 import "./Post.scss";
-import { useState } from "react";
 
 const Post = ({ post }: { post: IPostCreated }) => {
   const navigate = useNavigate();
   const [postLikes, setPostLikes] = useState<string[]>(post.likes);
+  const [postReswirks, setPostReswirks] = useState<string[]>(post.reswirks);
 
   const handlePostClick = () => {
     // navigate(`/${dummyData.nickname}/${dummyData.postId}`);
@@ -38,6 +38,30 @@ const Post = ({ post }: { post: IPostCreated }) => {
       } else {
         setPostLikes((likes) => [...likes, user.id]);
         likePost(post._id, user.id);
+      }
+    }
+  };
+
+  const handlePostReswirk = async (
+    ev: React.MouseEvent<HTMLLIElement, MouseEvent>
+  ) => {
+    ev.preventDefault();
+
+    const user = getUser();
+
+    if (user) {
+      const isReswirked = postLikes.some((reswirk) => reswirk === user.id);
+      console.log(user.id, isReswirked);
+
+      if (isReswirked) {
+        const filteredReswirks = postReswirks.filter(
+          (reswirk) => reswirk !== user.id
+        );
+        setPostReswirks([...filteredReswirks]);
+        undoReswirk(post._id, user.id);
+      } else {
+        //   setPostLikes((likes) => [...likes, user.id]);
+        //   likePost(post._id, user.id);
       }
     }
   };
@@ -74,7 +98,10 @@ const Post = ({ post }: { post: IPostCreated }) => {
                 </span>
               </span>
             </li>
-            <li className="post__li--item action__item reswirk">
+            <li
+              className="post__li--item action__item reswirk"
+              onClick={handlePostReswirk}
+            >
               <span className="post__span--action action__reswirks swirks">
                 <ShareOutlinedIcon className="post__icon--reswirk reswirk__icon post__icon" />
                 <span className="post__span--reswirkscount reswirks__count">
