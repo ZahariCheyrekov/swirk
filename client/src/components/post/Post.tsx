@@ -15,7 +15,6 @@ const Post = ({ post }: { post: IPost }) => {
   const handlePostClick = () => {
     navigate(`/${dummyData.nickname}/${dummyData.postId}`);
   };
-  console.log(post);
 
   return (
     <article className="post__article" onClick={handlePostClick}>
@@ -29,12 +28,12 @@ const Post = ({ post }: { post: IPost }) => {
       </aside>
       <summary className="post__summary">
         <article className="post__article--user article__user">
-          <h3 className="post__heading--user heading__user">
-            {dummyData.name}
-          </h3>
-          <h3 className="post__heading--nickname">@{dummyData.nickname}</h3>
+          <h3 className="post__heading--user heading__user">{post.userName}</h3>
+          <h3 className="post__heading--nickname">@{post.nickname}</h3>
           <span className="post__span--dot">·</span>
-          <h3 className="post__heading--time">{dummyData.time}</h3>
+          <h3 className="post__heading--time">
+            {new Date(`${post.createdAt}`).getDate()} march
+          </h3>
         </article>
         <p className="post__paragraph--cotent post__content paragraph content">
           {post.postContent}
