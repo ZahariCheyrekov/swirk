@@ -8,18 +8,24 @@ const postSchema = mongoose.Schema({
     imageSrc: {
         type: String,
     },
-    comments: {
-        type: mongoose.Types.ObjectId,
-        ref: 'Post'
-    },
-    likes: {
-        type: mongoose.Types.ObjectId,
-        ref: 'User'
-    },
-    reswirks: {
-        type: mongoose.Types.ObjectId,
-        ref: 'User'
-    },
+    comments: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'Post'
+        }
+    ],
+    likes: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'User'
+        }
+    ],
+    reswirks: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'User'
+        }
+    ],
     userId: {
         type: mongoose.Types.ObjectId,
         ref: 'User'
