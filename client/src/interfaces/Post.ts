@@ -9,4 +9,5 @@ export interface IPost {
   profilePicture: string;
   userName: string;
   nickname: string;
+  createdAt?: string | Date;
 }
