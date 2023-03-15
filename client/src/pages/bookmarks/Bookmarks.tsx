@@ -1,5 +1,4 @@
 import SideNavigation from "../../components/navigation/SideNavigation";
-import Post from "../../components/post/Post";
 import Search from "../../components/search/Search";
 import Trends from "../../components/trends/Trends";
 
@@ -20,7 +19,6 @@ const Bookmarks = () => {
             @{dummyData.nickname}
           </h4>
         </div>
-        <Post />
       </section>
       <section className="bookmarks__section--trends trends">
         <section className="search__section">

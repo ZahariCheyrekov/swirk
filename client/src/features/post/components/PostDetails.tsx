@@ -1,7 +1,6 @@
 import PhotoSizeSelectActualOutlinedIcon from "@mui/icons-material/PhotoSizeSelectActualOutlined";
 
 import SideNavigation from "../../../components/navigation/SideNavigation";
-import Post from "../../../components/post/Post";
 import Search from "../../../components/search/Search";
 import Trends from "../../../components/trends/Trends";
 
@@ -19,7 +18,6 @@ const PostDetails = () => {
         <div className="details__info">
           <h2 className="details__headin--name name">Swirk</h2>
         </div>
-        <Post />
         <article className="details__article--reply article__reply">
           <div className="details__wrapper--image wrapper__img">
             <img
@@ -46,7 +44,6 @@ const PostDetails = () => {
             </span>
           </section>
         </article>
-        <Post/>
       </section>
       <section className="details__section--trends trends">
         <section className="search__section">
