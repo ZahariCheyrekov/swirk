@@ -35,7 +35,25 @@ export const likePost = async (req, res) => {
                 likedBy: userId
             }
         }
-        return res.status(201).json(response);
+        return res.status(200).json(response);
+
+    } catch (error) {
+        return res.status(500).json({ message: error });
+    }
+}
+
+export const dislikePost = async (req, res) => {
+    const { postId, userId } = req.body;
+
+    try {
+        const post = await postService.removePostLike(postId, userId);
+        const response = {
+            post: {
+                postId: postId,
+                removedLikeFrom: userId
+            }
+        }
+        return res.status(200).json(response);
 
     } catch (error) {
         return res.status(500).json({ message: error });
