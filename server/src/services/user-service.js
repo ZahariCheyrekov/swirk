@@ -15,3 +15,11 @@ export const likeUserPost = (userId, postId) => {
         { runValidators: true }
     );
 }
+
+export const removeUserLike = (userId, postId) => {
+    return User.findByIdAndUpdate(
+        { _id: userId },
+        { $pull: { likedPosts: postId } },
+        { runValidators: true }
+    );
+}
