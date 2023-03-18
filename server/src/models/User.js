@@ -38,6 +38,10 @@ const userSchema = mongoose.Schema({
         type: String,
         default: ""
     },
+    coverPicture: {
+        type: String,
+        default: ""
+    },
     createdPosts: [
         {
             type: mongoose.Types.ObjectId,
