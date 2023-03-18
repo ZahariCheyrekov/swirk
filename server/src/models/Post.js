@@ -7,6 +7,7 @@ const postSchema = mongoose.Schema({
     },
     imageSrc: {
         type: String,
+        default: ""
     },
     comments: [
         {
