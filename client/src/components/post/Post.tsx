@@ -33,15 +33,15 @@ const Post = ({ post }: { post: IPostCreated }) => {
     const user = getUser();
 
     if (user) {
-      const isLiked = postLikes.some((like) => like === user.id);
+      const isLiked = postLikes.some((like) => like === user._id);
 
       if (isLiked) {
-        const filteredLikes = postLikes.filter((like) => like !== user.id);
+        const filteredLikes = postLikes.filter((like) => like !== user._id);
         setPostLikes([...filteredLikes]);
-        dislikePost(post._id, user.id);
+        dislikePost(post._id, user._id);
       } else {
-        setPostLikes((likes) => [...likes, user.id]);
-        likePost(post._id, user.id);
+        setPostLikes((likes) => [...likes, user._id]);
+        likePost(post._id, user._id);
       }
     }
   };
@@ -54,17 +54,17 @@ const Post = ({ post }: { post: IPostCreated }) => {
     const user = getUser();
 
     if (user) {
-      const isReswirked = postReswirks.some((reswirk) => reswirk === user.id);
+      const isReswirked = postReswirks.some((reswirk) => reswirk === user._id);
 
       if (isReswirked) {
         const filteredReswirks = postReswirks.filter(
-          (reswirk) => reswirk !== user.id
+          (reswirk) => reswirk !== user._id
         );
         setPostReswirks([...filteredReswirks]);
-        undoReswirk(post._id, user.id);
+        undoReswirk(post._id, user._id);
       } else {
-        setPostReswirks((reswirks) => [...reswirks, user.id]);
-        reswirkPost(post._id, user.id);
+        setPostReswirks((reswirks) => [...reswirks, user._id]);
+        reswirkPost(post._id, user._id);
       }
     }
   };
