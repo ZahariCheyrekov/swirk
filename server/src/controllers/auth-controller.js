@@ -59,7 +59,6 @@ export const register = async (req, res) => {
 
         const fullName = `${firstName} ${lastName}`;
         const nickname = fullName.toLowerCase().split(' ').join('');
-        console.log(nickname)
         const newUser = await authService.createUser({ email, password: hashedPassword, fullName, nickname });
 
         const token = signJwtToken({ email: newUser.email, id: newUser._id });
@@ -72,8 +71,6 @@ export const register = async (req, res) => {
             profilePicture: newUser.profilePicture,
             token: token
         }
-
-        console.log(result)
 
         return res.status(200).json(result);
 
