@@ -1,12 +1,24 @@
+import { useEffect, useState } from "react";
 import SideNavigation from "../../../components/navigation/SideNavigation";
 import Search from "../../../components/search/Search";
 import Trends from "../../../components/trends/Trends";
 
 import dummyData from "./dummy.json";
+import { getUserData } from "../api/user-api";
 
 import "./Profile.scss";
 
 const Profile = () => {
+  const [user, setUser] = useState<Object>({});
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const userFetched = await getUserData("zaharicheyrekov");
+      setUser(userFetched);
+    };
+    fetchUser();
+  }, []);
+
   return (
     <main className="profile__main">
       <section className="profile__section--nav nav">
