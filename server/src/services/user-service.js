@@ -1,5 +1,9 @@
 import User from '../models/User.js';
 
+export const getUserByNickname = (nickname) => {
+    return User.findOne({ nickname });
+}
+
 export const createUserPost = (userId, postId) => {
     return User.findByIdAndUpdate(
         { _id: userId },
