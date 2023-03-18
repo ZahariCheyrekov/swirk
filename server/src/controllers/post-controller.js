@@ -22,6 +22,18 @@ export const getPosts = async (req, res) => {
     }
 }
 
+export const getPostComments = async (req, res) => {
+    const { postId, postComments } = req.body;
+
+    try {
+        const comments = await postService.getPostComments(postId, postComments);
+        return res.status(200).json(comments);
+
+    } catch (error) {
+        return res.status(500).json({ message: error });
+    }
+}
+
 export const createPost = async (req, res) => {
     const { postContent, imageSrc, profilePicture, userName, nickname, userId } = req.body;
 
