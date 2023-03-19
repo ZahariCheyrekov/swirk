@@ -46,11 +46,13 @@ export const removePostLike = async (postId, userId) => {
 export const commentOnPost = async (postData, postId, userId) => {
     const postCreated = await createPost(postData, userId);
 
-    return Post.findByIdAndUpdate(
+    await Post.findByIdAndUpdate(
         { _id: postId },
         { $push: { comments: postCreated._id } },
         { runValidators: true }
     );
+
+    return postCreated;
 }
 
 export const reswirk = async (postId, userId) => {
