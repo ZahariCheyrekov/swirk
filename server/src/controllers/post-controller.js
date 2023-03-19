@@ -131,3 +131,15 @@ export const undoReswirk = async (req, res) => {
         return res.status(500).json({ message: error });
     }
 }
+
+export const deletePost = async (req, res) => {
+    const { postId } = req.params;
+
+    try {
+        postService.deletePostById(postId);
+        return res.status(200).json({ deletedPost: postId });
+
+    } catch (error) {
+        return res.status(500).json({ message: error });
+    }
+}
