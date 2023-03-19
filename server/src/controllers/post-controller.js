@@ -89,11 +89,7 @@ export const commentPost = async (req, res) => {
 
     try {
         const commentedPost = await postService.commentOnPost(postData, postId, userId);
-        const response = {
-            postId: postId,
-            commentedBy: userId
-        }
-        return res.status(200).json(response);
+        return res.status(200).json(commentedPost);
 
     } catch (error) {
         return res.status(500).json({ message: error });
