@@ -14,3 +14,6 @@ export const reswirkPost = (postId: string, userId: string) =>
 
 export const undoReswirk = (postId: string, userId: string) =>
   requester.del(urls.UNDO_RESWIRK_POST_LINK, { postId, userId });
+
+export const deletePost = (postId: string) =>
+  requester.del(`${urls.DELETE_POST_LINK}/${postId}`);
