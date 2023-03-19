@@ -5,6 +5,7 @@ import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutline
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 import { IPostCreated } from "../../interfaces/Post";
 import {
@@ -21,6 +22,7 @@ const Post = ({ post }: { post: IPostCreated }) => {
   const navigate = useNavigate();
   const [postLikes, setPostLikes] = useState<string[]>(post.likes);
   const [postReswirks, setPostReswirks] = useState<string[]>(post.reswirks);
+  const [moreActionsOpen, setMoreActionsOpen] = useState<Boolean>(false);
 
   const handlePostClick = () => {
     // navigate(`/${dummyData.nickname}/${dummyData.postId}`);
@@ -70,6 +72,12 @@ const Post = ({ post }: { post: IPostCreated }) => {
     }
   };
 
+  const handleMoreActions = () => {
+    setMoreActionsOpen((prevState) => !prevState);
+  };
+
+  const handleDeletePost = () => {};
+
   return (
     <article className="post__article" onClick={handlePostClick}>
       <aside className="post__aside aside__image">
@@ -88,7 +96,21 @@ const Post = ({ post }: { post: IPostCreated }) => {
           <h3 className="post__heading--time">
             {new Date(`${post.createdAt}`).getDate()} march
           </h3>
-          <MoreVertIcon className="post__icon--more icon__more" />
+          <MoreVertIcon
+            className="post__icon--more icon__more"
+            onClick={handleMoreActions}
+          />
+          {moreActionsOpen && (
+            <ul
+              className={`post__more--actions more__actions ${
+                moreActionsOpen && "show"
+              }`}
+            >
+              <li className="post__more--action action__more--item" onClick={handleDeletePost}>
+                <DeleteIcon /> Delete
+              </li>
+            </ul>
+          )}
         </article>
         <p className="post__paragraph--cotent post__content paragraph content">
           {post.postContent}
