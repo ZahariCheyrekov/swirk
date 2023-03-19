@@ -76,3 +76,7 @@ export const removeReswirk = async (postId, userId) => {
     await userService.removeUserReswirk(userId, postId);
     return post;
 }
+
+export const deletePostById = async (postId) => {
+    return Post.findByIdAndRemove(postId);
+}
