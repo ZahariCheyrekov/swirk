@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 import { IPostCreated } from "../../interfaces/Post";
 import {
@@ -87,6 +88,7 @@ const Post = ({ post }: { post: IPostCreated }) => {
           <h3 className="post__heading--time">
             {new Date(`${post.createdAt}`).getDate()} march
           </h3>
+          <MoreVertIcon className="post__icon--more icon__more" />
         </article>
         <p className="post__paragraph--cotent post__content paragraph content">
           {post.postContent}
