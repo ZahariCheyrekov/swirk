@@ -13,6 +13,7 @@ import {
   dislikePost,
   undoReswirk,
   reswirkPost,
+  deletePost,
 } from "../../api/globalAPI";
 import { getUser } from "../../services/localStorage";
 
@@ -76,7 +77,9 @@ const Post = ({ post }: { post: IPostCreated }) => {
     setMoreActionsOpen((prevState) => !prevState);
   };
 
-  const handleDeletePost = () => {};
+  const handleDeletePost = () => {
+    deletePost(post._id);
+  };
 
   return (
     <article className="post__article" onClick={handlePostClick}>
@@ -106,7 +109,10 @@ const Post = ({ post }: { post: IPostCreated }) => {
                 moreActionsOpen && "show"
               }`}
             >
-              <li className="post__more--action action__more--item" onClick={handleDeletePost}>
+              <li
+                className="post__more--action action__more--item"
+                onClick={handleDeletePost}
+              >
                 <DeleteIcon /> Delete
               </li>
             </ul>
