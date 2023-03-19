@@ -48,7 +48,7 @@ const CreatePost = () => {
         postContent: postContent,
         imageSrc: imageUrl,
         nickname: user.nickname,
-        userId: user.id,
+        userId: user._id,
         userName: user.fullName,
         profilePicture: user.profilePicture || "",
       });

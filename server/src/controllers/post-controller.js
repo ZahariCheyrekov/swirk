@@ -1,9 +1,33 @@
 import * as postService from '../services/post-service.js';
 
+export const getPost = async (req, res) => {
+    const { postId } = req.params;
+
+    try {
+        const post = await postService.getPostById(postId);
+        return res.status(200).json(post);
+
+    } catch (error) {
+        return res.status(500).json({ message: error });
+    }
+}
+
 export const getPosts = async (req, res) => {
     try {
         const posts = await postService.getMainPosts();
         return res.status(200).json(posts);
+
+    } catch (error) {
+        return res.status(500).json({ message: error });
+    }
+}
+
+export const getPostComments = async (req, res) => {
+    const { postId, postComments } = req.body;
+
+    try {
+        const comments = await postService.getPostComments(postId, postComments);
+        return res.status(200).json(comments);
 
     } catch (error) {
         return res.status(500).json({ message: error });
@@ -54,6 +78,18 @@ export const dislikePost = async (req, res) => {
             }
         }
         return res.status(200).json(response);
+
+    } catch (error) {
+        return res.status(500).json({ message: error });
+    }
+}
+
+export const commentPost = async (req, res) => {
+    const { postData, postId, userId } = req.body;
+
+    try {
+        const commentedPost = await postService.commentOnPost(postData, postId, userId);
+        return res.status(200).json(commentedPost);
 
     } catch (error) {
         return res.status(500).json({ message: error });

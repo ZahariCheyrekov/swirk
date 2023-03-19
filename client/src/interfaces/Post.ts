@@ -2,7 +2,7 @@ export interface IPostCreated {
   _id: string;
   postContent: string;
   imageSrc: any;
-  comments: Array<string>;
+  comments: Array<IPostCreated>;
   likes: Array<string>;
   reswirks: Array<string>;
   userId: string;

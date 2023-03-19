@@ -12,7 +12,7 @@ const Trends = () => {
         <ul className="trends__list">
           <li className="trends__li--item list__item trend">
             <h5 className="trends__heading--tag trend__type heading__gray">
-              Business & finance · Trending <MoreHorizIcon />
+              Business & finance · Trending <MoreHorizIcon className="post__icon--more icon__more" />
             </h5>
             <h4 className="trends__heading--name trend__name">#100x</h4>
             <h5 className="trends__heading--swirks trend__swirks heading__gray">
@@ -21,7 +21,7 @@ const Trends = () => {
           </li>
           <li className="trends__li--item list__item trend">
             <h5 className="trends__heading--tag trend__type heading__gray">
-              Trending in Bulgaria <MoreHorizIcon />
+              Trending in Bulgaria <MoreHorizIcon className="post__icon--more icon__more" />
             </h5>
             <h4 className="trends__heading--name trend__name">ChatGPT</h4>
             <h5 className="trends__heading--swirks trend__swirks heading__gray">
@@ -30,7 +30,7 @@ const Trends = () => {
           </li>
           <li className="trends__li--item list__item trend">
             <h5 className="trends__heading--tag trend__type heading__gray">
-              Business & finance · Trending <MoreHorizIcon />
+              Business & finance · Trending <MoreHorizIcon className="post__icon--more icon__more" />
             </h5>
             <h4 className="trends__heading--name trend__name">Binance USD</h4>
             <h5 className="trends__heading--swirks trend__swirks heading__gray">
@@ -39,7 +39,7 @@ const Trends = () => {
           </li>
           <li className="trends__li--item list__item trend">
             <h5 className="trends__heading--tag trend__type heading__gray">
-              Shanghai <MoreHorizIcon />
+              Shanghai <MoreHorizIcon className="post__icon--more icon__more" />
             </h5>
             <h4 className="trends__heading--name trend__name">Binance USD</h4>
             <h5 className="trends__heading--swirks trend__swirks heading__gray">
@@ -48,7 +48,7 @@ const Trends = () => {
           </li>
           <li className="trends__li--item list__item trend">
             <h5 className="trends__heading--tag trend__type heading__gray">
-              Trending <MoreHorizIcon />
+              Trending <MoreHorizIcon className="post__icon--more icon__more" />
             </h5>
             <h4 className="trends__heading--name trend__name">#pawswap</h4>
             <h5 className="trends__heading--swirks trend__swirks heading__gray">
@@ -57,7 +57,7 @@ const Trends = () => {
           </li>
           <li className="trends__li--item list__item trend">
             <h5 className="trends__heading--tag trend__type heading__gray">
-              Trending in Bulgaria <MoreHorizIcon />
+              Trending in Bulgaria <MoreHorizIcon className="post__icon--more icon__more" />
             </h5>
             <h4 className="trends__heading--name trend__name">Bulgarian</h4>
             <h5 className="trends__heading--swirks trend__swirks heading__gray">
@@ -66,7 +66,7 @@ const Trends = () => {
           </li>
           <li className="trends__li--item list__item trend">
             <h5 className="trends__heading--tag trend__type heading__gray">
-              Business & finance · Trending <MoreHorizIcon />
+              Business & finance · Trending <MoreHorizIcon className="post__icon--more icon__more" />
             </h5>
             <h4 className="trends__heading--name trend__name">Gary Gensler</h4>
             <h5 className="trends__heading--swirks trend__swirks heading__gray">
@@ -75,7 +75,7 @@ const Trends = () => {
           </li>
           <li className="trends__li--item list__item trend">
             <h5 className="trends__heading--tag trend__type heading__gray">
-              Business & finance · Trending <MoreHorizIcon />
+              Business & finance · Trending <MoreHorizIcon className="post__icon--more icon__more" />
             </h5>
             <h4 className="trends__heading--name trend__name">#BUSD</h4>
             <h5 className="trends__heading--swirks trend__swirks heading__gray">
@@ -84,7 +84,7 @@ const Trends = () => {
           </li>
           <li className="trends__li--item list__item trend">
             <h5 className="trends__heading--tag trend__type heading__gray">
-              Trending in Bulgaria <MoreHorizIcon />
+              Trending in Bulgaria <MoreHorizIcon className="post__icon--more icon__more" />
             </h5>
             <h4 className="trends__heading--name trend__name">Bulgarian</h4>
             <h5 className="trends__heading--swirks trend__swirks heading__gray">
@@ -93,7 +93,7 @@ const Trends = () => {
           </li>
           <li className="trends__li--item list__item trend">
             <h5 className="trends__heading--tag trend__type heading__gray">
-              Trending in Bulgaria <MoreHorizIcon />
+              Trending in Bulgaria <MoreHorizIcon className="post__icon--more icon__more" />
             </h5>
             <h4 className="trends__heading--name trend__name">Africa</h4>
             <h5 className="trends__heading--swirks trend__swirks heading__gray">

@@ -10,7 +10,7 @@ export interface IUserInStorage {
   fullName: string;
   nickname: string;
   email: string;
-  id: string;
+  _id: string;
   token: string;
   profilePicture: string;
 }
