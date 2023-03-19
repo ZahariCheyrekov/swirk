@@ -3,6 +3,7 @@
 .post__article {
   display: flex;
   padding: 0.8rem;
+  position: relative;
 
   cursor: pointer;
   border-bottom: 2px solid $gray-hover-color;
@@ -72,12 +73,41 @@
   font-size: 1.2rem;
   border-radius: 50%;
   padding: 0.4rem;
+
+  position: relative;
   width: 2em;
   height: 2em;
 
   &:hover {
     color: $sky-blue-color;
     background-color: $comment-blue-color;
+  }
+}
+
+.post__more--actions.more__actions.show {
+  position: absolute;
+  box-shadow: 0 0 1rem $light-gray-color;
+  background-color: $white-color;
+
+  border-radius: 1rem;
+  z-index: 100;
+
+  width: 30%;
+  top: 3rem;
+  right: 0.8rem;
+}
+
+.action__more--item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  color: $pink-color;
+  border-radius: 1rem;
+  padding: 1rem;
+
+  &:hover {
+    background-color: $gray-hover-color;
   }
 }
 
