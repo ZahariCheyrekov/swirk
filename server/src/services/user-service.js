@@ -1,7 +1,18 @@
 import User from '../models/User.js';
+import * as postService from './post-service.js';
 
 export const getUserByNickname = (nickname) => {
     return User.findOne({ nickname });
+}
+
+export const getUserById = (userId) => {
+    return User.findById(userId);
+}
+
+export const getUserCommentedPosts = async (userId) => {
+    const user = await getUserById(userId);
+    const posts = await postService.getCommentedPosts(user.commentedPosts);
+    return posts;
 }
 
 export const createUserPost = (userId, postId) => {
@@ -43,3 +54,13 @@ export const removeUserReswirk = (userId, postId) => {
         { runValidators: true }
     );
 }
+
+export const commentUserPost = (userId, postId) => {
+    return User.findByIdAndUpdate(
+        { _id: userId },
+        { $push: { commentedPosts: postId } },
+        { runValidators: true }
+    );
+}
+
+commentUserPost
