@@ -13,6 +13,11 @@ export const getCreatedPosts = (userId) => {
     return Post.find({ userId: userId })
 }
 
+export const getLikedPosts = (userId) => {
+    return Post.find({ likes: userId });
+}
+
+
 export const getPostComments = (postId, comments) => {
     return getPostById(postId).find({ _id: { $in: comments } });
 }
