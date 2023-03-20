@@ -25,7 +25,7 @@ export const login = async (req, res) => {
         const token = signJwtToken({ email: existingUser.email, id: existingUser._id });
 
         const result = {
-            id: existingUser._id,
+            _id: existingUser._id,
             email: existingUser.email,
             fullName: existingUser.fullName,
             nickname: existingUser.nickname,
@@ -64,7 +64,7 @@ export const register = async (req, res) => {
         const token = signJwtToken({ email: newUser.email, id: newUser._id });
 
         const result = {
-            id: newUser._id,
+            _id: newUser._id,
             email: newUser.email,
             fullName: newUser.fullName,
             nickname: newUser.nickname,

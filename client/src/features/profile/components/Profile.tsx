@@ -6,19 +6,34 @@ import Trends from "../../../components/trends/Trends";
 import dummyData from "./dummy.json";
 import Post from "../../../components/post/Post";
 import { IPostCreated } from "../../../interfaces/Post";
-import { getCreatedPosts, getUserData } from "../api/user-api";
+import {
+  getCreatedPosts,
+  getLikedPosts,
+  getUserData,
+  getCommentedPosts,
+} from "../api/user-api";
 
 import "./Profile.scss";
+import { IUserInStorage } from "../../../interfaces/User";
 
 const Profile = () => {
-  const [user, setUser] = useState<Object>({});
+  const [user, setUser] = useState<IUserInStorage>({
+    fullName: "",
+    nickname: "",
+    email: "",
+    _id: "",
+    token: "",
+    profilePicture: "",
+  });
   const [posts, setPosts] = useState<IPostCreated[]>([]);
 
   useEffect(() => {
     const fetchUser = async () => {
       const userFetched = await getUserData("zaharicheyrekov");
       setUser(userFetched);
-      fetchCreatedPosts();
+      // fetchCreatedPosts();
+      // fetchLikedPosts();
+      fetchCommentedPosts();
     };
     fetchUser();
   }, []);
@@ -26,6 +41,16 @@ const Profile = () => {
   const fetchCreatedPosts = async () => {
     const createdPosts = await getCreatedPosts(`641380a117d76faf054b63ec`);
     setPosts(createdPosts);
+  };
+
+  const fetchLikedPosts = async () => {
+    const likedPosts = await getLikedPosts(`641380a117d76faf054b63ec`);
+    setPosts(likedPosts);
+  };
+
+  const fetchCommentedPosts = async () => {
+    const likedPosts = await getCommentedPosts(`641380a117d76faf054b63ec`);
+    setPosts(likedPosts);
   };
 
   return (
@@ -83,15 +108,15 @@ const Profile = () => {
             <h3 className="profile__heading--timelin timeline__text">Swirks</h3>
           </li>
           <li className="profile__li--timeline timeline">
-            <h3 className="profile__heading--timelin timeline__text">Liked</h3>
+            <h3 className="profile__heading--timelin timeline__text">Likes</h3>
           </li>
           <li className="profile__li--timeline timeline">
             <h3 className="profile__heading--timelin timeline__text">
-              Commented
+              Comments
             </h3>
           </li>
           <li className="profile__li--timeline timeline">
-            <h3 className="profile__heading--timelin timeline__text">Shared</h3>
+            <h3 className="profile__heading--timelin timeline__text">Shares</h3>
           </li>
         </ul>
         <section className="profile__section--posts">

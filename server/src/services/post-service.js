@@ -13,6 +13,14 @@ export const getCreatedPosts = (userId) => {
     return Post.find({ userId: userId })
 }
 
+export const getLikedPosts = (userId) => {
+    return Post.find({ likes: userId });
+}
+
+export const getCommentedPosts = (commentsIds) => {
+    return Post.find({ _id: { $in: commentsIds } });;
+}
+
 export const getPostComments = (postId, comments) => {
     return getPostById(postId).find({ _id: { $in: comments } });
 }
@@ -56,6 +64,7 @@ export const commentOnPost = async (postData, postId, userId) => {
         { runValidators: true }
     );
 
+    await userService.commentUserPost(userId, postId);
     return postCreated;
 }
 
