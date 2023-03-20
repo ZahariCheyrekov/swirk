@@ -24,3 +24,16 @@ export const getSwirks = async (req, res) => {
         return res.status(500).json({ message: error });
     }
 }
+
+export const getLikes = async (req, res) => {
+    const { userId } = req.params;
+
+    try {
+        const createdPosts = await postService.getLikedPosts(userId);
+        return res.status(200).json(createdPosts);
+
+    } catch (error) {
+        return res.status(500).json({ message: error });
+    }
+}
+
