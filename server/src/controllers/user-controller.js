@@ -37,3 +37,14 @@ export const getLikes = async (req, res) => {
     }
 }
 
+export const getComments = async (req, res) => {
+    const { userId } = req.params;
+
+    try {
+        const createdPosts = await userService.getUserCommentedPosts(userId);
+        return res.status(200).json(createdPosts);
+
+    } catch (error) {
+        return res.status(500).json({ message: error });
+    }
+}
