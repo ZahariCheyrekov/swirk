@@ -4,20 +4,29 @@ import Search from "../../../components/search/Search";
 import Trends from "../../../components/trends/Trends";
 
 import dummyData from "./dummy.json";
-import { getUserData } from "../api/user-api";
+import Post from "../../../components/post/Post";
+import { IPostCreated } from "../../../interfaces/Post";
+import { getCreatedPosts, getUserData } from "../api/user-api";
 
 import "./Profile.scss";
 
 const Profile = () => {
   const [user, setUser] = useState<Object>({});
+  const [posts, setPosts] = useState<IPostCreated[]>([]);
 
   useEffect(() => {
     const fetchUser = async () => {
       const userFetched = await getUserData("zaharicheyrekov");
       setUser(userFetched);
+      fetchCreatedPosts();
     };
     fetchUser();
   }, []);
+
+  const fetchCreatedPosts = async () => {
+    const createdPosts = await getCreatedPosts(`641380a117d76faf054b63ec`);
+    setPosts(createdPosts);
+  };
 
   return (
     <main className="profile__main">
@@ -85,6 +94,11 @@ const Profile = () => {
             <h3 className="profile__heading--timelin timeline__text">Shared</h3>
           </li>
         </ul>
+        <section className="profile__section--posts">
+          {posts.map((post: IPostCreated) => {
+            return <Post key={post._id} post={post} />;
+          })}
+        </section>
       </section>
       <section className="profile__section--trends trends">
         <section className="search__section">
