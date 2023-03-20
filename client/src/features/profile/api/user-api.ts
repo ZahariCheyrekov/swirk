@@ -6,3 +6,9 @@ export const getUserData = (userNickname: string) =>
 
 export const getCreatedPosts = (userId: string) =>
   requester.get(`${BASE_URL}/user/${userId}/swirks`);
+
+export const getLikedPosts = (userId: string) =>
+  requester.get(`${BASE_URL}/user/${userId}/likes`);
+
+export const getCommentedPosts = (userId: string) =>
+  requester.get(`${BASE_URL}/user/${userId}/comments`);
