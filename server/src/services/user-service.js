@@ -15,6 +15,12 @@ export const getUserCommentedPosts = async (userId) => {
     return posts;
 }
 
+export const getUserReswirkedPosts = async (userId) => {
+    const user = await getUserById(userId);
+    const posts = await postService.getCommentedPosts(user.reswirkedPosts);
+    return posts;
+}
+
 export const createUserPost = (userId, postId) => {
     return User.findByIdAndUpdate(
         { _id: userId },
@@ -62,5 +68,3 @@ export const commentUserPost = (userId, postId) => {
         { runValidators: true }
     );
 }
-
-commentUserPost

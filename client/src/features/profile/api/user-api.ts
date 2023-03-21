@@ -12,3 +12,6 @@ export const getLikedPosts = (userId: string) =>
 
 export const getCommentedPosts = (userId: string) =>
   requester.get(`${BASE_URL}/user/${userId}/comments`);
+
+export const getReswirkedPosts = (userId: string) =>
+  requester.get(`${BASE_URL}/user/${userId}/reswirks`);

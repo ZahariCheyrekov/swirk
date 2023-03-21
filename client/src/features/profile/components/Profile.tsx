@@ -11,6 +11,7 @@ import {
   getLikedPosts,
   getUserData,
   getCommentedPosts,
+  getReswirkedPosts,
 } from "../api/user-api";
 
 import "./Profile.scss";
@@ -33,7 +34,8 @@ const Profile = () => {
       setUser(userFetched);
       // fetchCreatedPosts();
       // fetchLikedPosts();
-      fetchCommentedPosts();
+      // fetchCommentedPosts();
+      fetchReswirksPost();
     };
     fetchUser();
   }, []);
@@ -51,6 +53,11 @@ const Profile = () => {
   const fetchCommentedPosts = async () => {
     const likedPosts = await getCommentedPosts(`641380a117d76faf054b63ec`);
     setPosts(likedPosts);
+  };
+
+  const fetchReswirksPost = async () => {
+    const reswirkedPosts = await getReswirkedPosts(`641380a117d76faf054b63ec`);
+    setPosts(reswirkedPosts);
   };
 
   return (
