@@ -48,3 +48,15 @@ export const getComments = async (req, res) => {
         return res.status(500).json({ message: error });
     }
 }
+
+export const getReswirks = async (req, res) => {
+    const { userId } = req.params;
+
+    try {
+        const reswirkedPosts = await userService.getUserReswirkedPosts(userId);
+        return res.status(200).json(reswirkedPosts);
+
+    } catch (error) {
+        return res.status(500).json({ message: error });
+    }
+}
