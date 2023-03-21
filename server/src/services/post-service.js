@@ -21,6 +21,10 @@ export const getCommentedPosts = (commentsIds) => {
     return Post.find({ _id: { $in: commentsIds } });;
 }
 
+export const getReswirkedPosts = (reswirkedIds) => {
+    return Post.find({ _id: { $in: reswirkedIds } });;
+}
+
 export const getPostComments = (postId, comments) => {
     return getPostById(postId).find({ _id: { $in: comments } });
 }
