@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import SideNavigation from "../../../components/navigation/SideNavigation";
 import Search from "../../../components/search/Search";
 import Trends from "../../../components/trends/Trends";
@@ -6,6 +8,7 @@ import Trends from "../../../components/trends/Trends";
 import dummyData from "./dummy.json";
 import Post from "../../../components/post/Post";
 import { IPostCreated } from "../../../interfaces/Post";
+import { IUserInStorage } from "../../../interfaces/User";
 import {
   getCreatedPosts,
   getLikedPosts,
@@ -15,9 +18,10 @@ import {
 } from "../api/user-api";
 
 import "./Profile.scss";
-import { IUserInStorage } from "../../../interfaces/User";
 
 const Profile = () => {
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
   const [user, setUser] = useState<IUserInStorage>({
     fullName: "",
     nickname: "",
@@ -32,32 +36,42 @@ const Profile = () => {
     const fetchUser = async () => {
       const userFetched = await getUserData("zaharicheyrekov");
       setUser(userFetched);
-      // fetchCreatedPosts();
-      // fetchLikedPosts();
-      // fetchCommentedPosts();
-      fetchReswirksPost();
+      fetchPosts(userFetched._id);
     };
     fetchUser();
-  }, []);
+  }, [pathname]);
 
-  const fetchCreatedPosts = async () => {
-    const createdPosts = await getCreatedPosts(`641380a117d76faf054b63ec`);
-    setPosts(createdPosts);
+  const fetchPosts = async (userId: string) => {
+    const currentPage = pathname.split("/")[2];
+    let fetchedPosts;
+
+    switch (currentPage) {
+      case "likes":
+        fetchedPosts = await getLikedPosts(userId);
+        break;
+      case "comments":
+        fetchedPosts = await getCommentedPosts(userId);
+        break;
+      case "shares":
+        fetchedPosts = await getReswirkedPosts(userId);
+        break;
+      default:
+        fetchedPosts = await getCreatedPosts(userId);
+        break;
+    }
+
+    setPosts(fetchedPosts);
   };
 
-  const fetchLikedPosts = async () => {
-    const likedPosts = await getLikedPosts(`641380a117d76faf054b63ec`);
-    setPosts(likedPosts);
-  };
+  const handleClick = (ev: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+    const itemValue =
+      ev.currentTarget.firstChild?.textContent?.toLocaleLowerCase();
 
-  const fetchCommentedPosts = async () => {
-    const likedPosts = await getCommentedPosts(`641380a117d76faf054b63ec`);
-    setPosts(likedPosts);
-  };
-
-  const fetchReswirksPost = async () => {
-    const reswirkedPosts = await getReswirkedPosts(`641380a117d76faf054b63ec`);
-    setPosts(reswirkedPosts);
+    if (itemValue !== "swirks") {
+      navigate(`/${user.nickname}/${itemValue}`);
+    } else {
+      navigate(`/${user.nickname}`);
+    }
   };
 
   return (
@@ -111,18 +125,18 @@ const Profile = () => {
           </div>
         </section>
         <ul className="profile__list--timelines timelines">
-          <li className="profile__li--timeline timeline">
+          <li className="profile__li--timeline timeline" onClick={handleClick}>
             <h3 className="profile__heading--timelin timeline__text">Swirks</h3>
           </li>
-          <li className="profile__li--timeline timeline">
+          <li className="profile__li--timeline timeline" onClick={handleClick}>
             <h3 className="profile__heading--timelin timeline__text">Likes</h3>
           </li>
-          <li className="profile__li--timeline timeline">
+          <li className="profile__li--timeline timeline" onClick={handleClick}>
             <h3 className="profile__heading--timelin timeline__text">
               Comments
             </h3>
           </li>
-          <li className="profile__li--timeline timeline">
+          <li className="profile__li--timeline timeline" onClick={handleClick}>
             <h3 className="profile__heading--timelin timeline__text">Shares</h3>
           </li>
         </ul>
