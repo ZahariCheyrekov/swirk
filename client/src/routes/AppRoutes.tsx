@@ -23,6 +23,9 @@ const AppRoutes = () => {
       <Route path="/explore" element={<Explore />} />
       <Route path="/bookmarks" element={<Bookmarks />} />
       <Route path="/:nickname" element={<Profile />} />
+      <Route path="/:nickname/likes" element={<Profile />} />
+      <Route path="/:nickname/comments" element={<Profile />} />
+      <Route path="/:nickname/shares" element={<Profile />} />
       <Route path="/:nickname/edit" element={<EditProfile />} />
       <Route path="/:nickname/:postId" element={<PostDetails />} />
     </Routes>
