@@ -29,8 +29,14 @@
   margin-left: 0.8rem;
   color: $gray-color;
 
+  .post__span--main {
+    display: flex;
+    gap: 0.6rem;
+  }
+
   .article__user {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 0.6rem;
 
@@ -109,6 +115,10 @@
   &:hover {
     background-color: $gray-hover-color;
   }
+}
+
+.action__item.bookmark {
+  margin: auto 0;
 }
 
 .action__item {
