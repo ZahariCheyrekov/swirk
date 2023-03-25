@@ -29,6 +29,14 @@ export const createUserPost = (userId, postId) => {
     );
 }
 
+export const addBookmark = (userId, postId) => {
+    return User.findByIdAndUpdate(
+        { _id: userId },
+        { $push: { bookmarks: postId } },
+        { runValidators: true }
+    );
+}
+
 export const likeUserPost = (userId, postId) => {
     return User.findByIdAndUpdate(
         { _id: userId },
