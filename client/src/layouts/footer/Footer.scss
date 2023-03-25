@@ -8,6 +8,7 @@
 
 .footer__section {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 
   max-width: 80%;
@@ -19,17 +20,21 @@
   }
 }
 
-.footer__list--main .child {
-  .li__heading {
-    margin-bottom: 1.4rem;
-    font-size: 1.2rem;
-  }
+.footer__list--main {
+  margin-bottom: 1rem;
 
-  .child__item {
-    margin: 0.5rem 0;
+  .child {
+    .li__heading {
+      margin-bottom: 1.4rem;
+      font-size: 1.2rem;
+    }
 
-    a {
-      color: $white-color;
+    .child__item {
+      margin: 0.5rem 0;
+
+      a {
+        color: $white-color;
+      }
     }
   }
 }
@@ -38,6 +43,7 @@
   display: flex;
   gap: 1rem;
   font-size: 1.6rem;
+  margin-right: 1rem;
 
   .child__item.icon__li {
     margin: 0;
@@ -60,4 +66,11 @@
 .app__store,
 .google__play {
   margin-bottom: 0.4rem;
+}
+
+@media only screen and (max-width: $tablet-width) {
+  .footer__list--main.main__list {
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
 }
