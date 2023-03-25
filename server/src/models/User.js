@@ -66,6 +66,12 @@ const userSchema = mongoose.Schema({
             ref: 'Post'
         }
     ],
+    bookmarks: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'Post'
+        }
+    ]
 });
 
 const User = mongoose.model('User', userSchema);

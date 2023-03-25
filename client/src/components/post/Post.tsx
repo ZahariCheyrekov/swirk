@@ -5,6 +5,7 @@ import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutline
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 import { IPostCreated } from "../../interfaces/Post";
@@ -13,6 +14,7 @@ import {
   dislikePost,
   undoReswirk,
   reswirkPost,
+  bookmarkPost,
   deletePost,
 } from "../../api/globalAPI";
 import { getUser } from "../../services/localStorage";
@@ -81,6 +83,12 @@ const Post = ({ post }: { post: IPostCreated }) => {
     deletePost(post._id);
   };
 
+  const handleBookmark = () => {
+    const user = getUser();
+
+    bookmarkPost(post._id, user?._id);
+  };
+
   return (
     <article className="post__article" onClick={handlePostClick}>
       <aside className="post__aside aside__image">
@@ -93,12 +101,16 @@ const Post = ({ post }: { post: IPostCreated }) => {
       </aside>
       <summary className="post__summary">
         <article className="post__article--user article__user">
-          <h3 className="post__heading--user heading__user">{post.userName}</h3>
-          <h3 className="post__heading--nickname">@{post.nickname}</h3>
-          <span className="post__span--dot">·</span>
-          <h3 className="post__heading--time">
-            {new Date(`${post.createdAt}`).getDate()} march
-          </h3>
+          <span className="post__span--main">
+            <h3 className="post__heading--user heading__user">
+              {post.userName}
+            </h3>
+            <h3 className="post__heading--nickname">@{post.nickname}</h3>
+            <span className="post__span--dot">·</span>
+            <h3 className="post__heading--time">
+              {new Date(`${post.createdAt}`).getDate()} march
+            </h3>
+          </span>
           <MoreVertIcon
             className="post__icon--more icon__more"
             onClick={handleMoreActions}
@@ -152,6 +164,12 @@ const Post = ({ post }: { post: IPostCreated }) => {
                   {postLikes.length}
                 </span>
               </span>
+            </li>
+            <li
+              className="post__li--item action__item bookmark"
+              onClick={handleBookmark}
+            >
+              <BookmarkBorderIcon />
             </li>
           </ul>
         </section>

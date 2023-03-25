@@ -11,4 +11,6 @@ export const COMMENT_POST_URL = `${BASE_URL}/posts/comment`;
 export const GET_POST_COMMENTS_URL = `${BASE_URL}/posts/comments`;
 export const RESWIRK_POST_LINK = `${BASE_URL}/posts/reswirk`;
 export const UNDO_RESWIRK_POST_LINK = `${BASE_URL}/posts/undo-reswirk`;
+export const BOOKMARK_POST_URL = `${BASE_URL}/posts/bookmark`;
+
 export const DELETE_POST_LINK = `${BASE_URL}/posts/delete`;

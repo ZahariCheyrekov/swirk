@@ -5,6 +5,7 @@ export interface IPostCreated {
   comments: Array<IPostCreated>;
   likes: Array<string>;
   reswirks: Array<string>;
+  bookmarks: Array<string>;
   userId: string;
   profilePicture: string;
   userName: string;

@@ -1,4 +1,5 @@
 import * as postService from '../services/post-service.js';
+import * as userService from '../services/user-service.js';
 
 export const getPost = async (req, res) => {
     const { postId } = req.params;
@@ -126,6 +127,21 @@ export const undoReswirk = async (req, res) => {
             }
         }
         return res.status(200).json(response);
+
+    } catch (error) {
+        return res.status(500).json({ message: error });
+    }
+}
+
+export const bookmarkPost = async (req, res) => {
+    const { postId, userId } = req.body;
+
+    try {
+        await userService.addBookmark(userId, postId);
+        return res.status(200).json({
+            bookmarkAddedTo: postId,
+            addedFrom: userId
+        });
 
     } catch (error) {
         return res.status(500).json({ message: error });
