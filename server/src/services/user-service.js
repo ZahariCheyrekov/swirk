@@ -15,6 +15,12 @@ export const getUserCommentedPosts = async (userId) => {
     return posts;
 }
 
+export const getUserBookmarks = async (userId) => {
+    const user = await getUserById(userId);
+    const bookmarks = await postService.getBookmarkedPosts(user.bookmarks);
+    return bookmarks;
+}
+
 export const getUserReswirkedPosts = async (userId) => {
     const user = await getUserById(userId);
     const posts = await postService.getCommentedPosts(user.reswirkedPosts);
