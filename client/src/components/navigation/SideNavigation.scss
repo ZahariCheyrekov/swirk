@@ -59,6 +59,11 @@
   }
 }
 
+.MuiSvgIcon-fontSizeMedium.home__icon.css-i4bv87-MuiSvgIcon-root {
+  font-size: 1.7rem;
+  margin-left: -0.2rem;
+}
+
 .swirk__create .title {
   margin-top: 2rem;
   padding: 0.6rem 3rem;
@@ -72,5 +77,35 @@
 
   &:hover {
     background-color: $blue-hover-color;
+  }
+}
+
+@media only screen and (max-width: $medium-device-width) {
+  .navigation__list {
+    margin: 0;
+    padding: 0;
+
+    .navigation__li--item.list__item:nth-child(1) {
+      display: none;
+    }
+
+    .link__wrapper .article i,
+    .home__icon {
+      font-weight: 400;
+      margin: 0.8rem;
+    }
+
+    .title__item.title {
+      display: none;
+    }
+
+    .MuiSvgIcon-fontSizeMedium.home__icon.css-i4bv87-MuiSvgIcon-root {
+      margin-left: 0.4rem;
+    }
+  }
+
+  .bubble__article--user.user__data,
+  .bubble__article--icon {
+    display: none;
   }
 }
