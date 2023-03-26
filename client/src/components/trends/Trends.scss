@@ -4,7 +4,7 @@
   max-width: 28rem;
   height: 100%;
 
-  margin-right: 4rem;
+  margin-right: 2rem;
   padding: 0.6rem 4rem 4rem 1.6rem;
   overflow: auto;
 
@@ -56,5 +56,11 @@
     &:hover {
       border-radius: 0 0 1rem 1rem;
     }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .trends.hidden__trends {
+    display: none;
   }
 }
