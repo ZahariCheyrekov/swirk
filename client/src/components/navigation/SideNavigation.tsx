@@ -26,7 +26,6 @@ const SideNavigation = () => {
             className="navigation__link--wrapper link__wrapper link"
           >
             <article className="navigation__article--item article">
-              {/* <i className="fa-solid fa-house-chimney"></i> */}
               <HomeOutlinedIcon className="home__icon" />
               <h3 className="navigation__title--item title__item title">
                 Home
