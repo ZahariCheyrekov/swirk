@@ -45,6 +45,24 @@ export const followUser = async (userToFollow, userFollowing) => {
     );
 }
 
+export const removeFollower = async (userToUnfollow, userUnfollowing) => {
+    unfollowUser(userToUnfollow, userUnfollowing);
+
+    return User.findByIdAndUpdate(
+        { _id: userToUnfollow },
+        { $pull: { followers: userUnfollowing } },
+        { runValidators: true }
+    );
+}
+
+export const unfollowUser = async (userToUnfollow, userUnfollowing) => {
+    await User.findByIdAndUpdate(
+        { _id: userUnfollowing },
+        { $pull: { following: userToUnfollow } },
+        { runValidators: true }
+    );
+}
+
 export const createUserPost = (userId, postId) => {
     return User.findByIdAndUpdate(
         { _id: userId },
