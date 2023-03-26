@@ -6,7 +6,7 @@ import About from "../pages/about/About";
 import Auth from "../features/auth/components/Auth";
 import CreatePost from "../features/post/components/CreatePost";
 import Explore from "../pages/explore/Explore";
-import Bookmarks from "../pages/bookmarks/Bookmarks";
+import Bookmarks from "../features/bookmarks/components/Bookmarks";
 import Profile from "../features/profile/components/Profile";
 import EditProfile from "../features/edit/components/EditProfile";
 import PostDetails from "../features/post/components/PostDetails";

@@ -15,10 +15,52 @@ export const getUserCommentedPosts = async (userId) => {
     return posts;
 }
 
+export const getUserBookmarks = async (userId) => {
+    const user = await getUserById(userId);
+    const bookmarks = await postService.getBookmarkedPosts(user.bookmarks);
+    return bookmarks;
+}
+
 export const getUserReswirkedPosts = async (userId) => {
     const user = await getUserById(userId);
     const posts = await postService.getCommentedPosts(user.reswirkedPosts);
     return posts;
+}
+
+export const addFollower = async (userToFollow, userFollowing) => {
+    followUser(userToFollow, userFollowing);
+
+    return User.findByIdAndUpdate(
+        { _id: userToFollow },
+        { $push: { followers: userFollowing } },
+        { runValidators: true }
+    );
+}
+
+export const followUser = async (userToFollow, userFollowing) => {
+    await User.findByIdAndUpdate(
+        { _id: userFollowing },
+        { $push: { following: userToFollow } },
+        { runValidators: true }
+    );
+}
+
+export const removeFollower = async (userToUnfollow, userUnfollowing) => {
+    unfollowUser(userToUnfollow, userUnfollowing);
+
+    return User.findByIdAndUpdate(
+        { _id: userToUnfollow },
+        { $pull: { followers: userUnfollowing } },
+        { runValidators: true }
+    );
+}
+
+export const unfollowUser = async (userToUnfollow, userUnfollowing) => {
+    await User.findByIdAndUpdate(
+        { _id: userUnfollowing },
+        { $pull: { following: userToUnfollow } },
+        { runValidators: true }
+    );
 }
 
 export const createUserPost = (userId, postId) => {

@@ -21,6 +21,10 @@ export const getCommentedPosts = (commentsIds) => {
     return Post.find({ _id: { $in: commentsIds } });;
 }
 
+export const getBookmarkedPosts = (bookmarks) => {
+    return Post.find({ _id: { $in: bookmarks } });
+}
+
 export const getReswirkedPosts = (reswirkedIds) => {
     return Post.find({ _id: { $in: reswirkedIds } });;
 }

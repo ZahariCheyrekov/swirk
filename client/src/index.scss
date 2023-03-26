@@ -4,9 +4,11 @@
   box-sizing: border-box;
 }
 
-html,
+html {
+  height: 100%;
+}
+
 body,
 #root {
-  width: 100%;
   height: 100%;
 }

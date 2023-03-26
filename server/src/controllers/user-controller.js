@@ -60,3 +60,48 @@ export const getReswirks = async (req, res) => {
         return res.status(500).json({ message: error });
     }
 }
+
+export const getBookmarks = async (req, res) => {
+    const { userId } = req.params;
+
+    try {
+        const bookmarks = await userService.getUserBookmarks(userId);
+        return res.status(200).json(bookmarks);
+
+    } catch (error) {
+        return res.status(500).json({ message: error });
+    }
+}
+
+export const followUser = async (req, res) => {
+    const { userToFollow, userFollowing } = req.body;
+
+    try {
+        await userService.addFollower(userToFollow, userFollowing);
+        const response = {
+            userFollowed: userToFollow,
+            followedBy: userFollowing
+        }
+        return res.status(200).json(response);
+
+    } catch (error) {
+        return res.status(500).json({ message: error });
+    }
+}
+
+
+export const unfollowUser = async (req, res) => {
+    const { userToUnfollow, userUnfollowing } = req.body;
+
+    try {
+        await userService.removeFollower(userToUnfollow, userUnfollowing);
+        const response = {
+            userFollowed: userToUnfollow,
+            followedBy: userUnfollowing
+        }
+        return res.status(200).json(response);
+
+    } catch (error) {
+        return res.status(500).json({ message: error });
+    }
+}

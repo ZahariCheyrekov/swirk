@@ -15,7 +15,10 @@ import {
   getUserData,
   getCommentedPosts,
   getReswirkedPosts,
+  followUser,
+  unfollowUser,
 } from "../api/user-api";
+import { getUserId } from "../../../services/localStorage";
 
 import "./Profile.scss";
 
@@ -74,12 +77,21 @@ const Profile = () => {
     }
   };
 
+  const handleFollow = async () => {
+    const userInStorage = getUserId();
+
+    if (userInStorage) {
+      // await followUser(user._id, userInStorage);
+      await unfollowUser(user._id, userInStorage);
+    }
+  };
+
   return (
     <main className="profile__main">
       <section className="profile__section--nav nav">
         <SideNavigation />
       </section>
-      <section className="profile__section">
+      <section className="profile__section main__section--center center__main--section">
         <div className="profile__info">
           <h2 className="profile__headin--name name">{dummyData.name}</h2>
           <h4 className="profile__headin--name name swirks__number">
@@ -102,6 +114,8 @@ const Profile = () => {
         </article>
         <section className="profile__section--content user__content">
           <div className="profile__wrapper--actions profile__actions">
+            {/* TODO: Fix button style and design */}
+            <button onClick={handleFollow}>Follow</button>
             <button className="profile__button--edit edit__button">
               Edit profile
             </button>

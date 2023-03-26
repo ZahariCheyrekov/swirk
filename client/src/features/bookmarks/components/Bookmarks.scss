@@ -1,4 +1,4 @@
-@import "../../scss/variables.scss";
+@import "../../../scss/variables.scss";
 
 .bookmarks__main {
   display: flex;
@@ -8,8 +8,9 @@
     flex-basis: 35%;
 
     .search__section {
-      max-width: 24rem;
-      padding: 0.8rem 0 0.4rem 1.6rem;
+      max-width: 28rem;
+      margin-right: 2rem;
+      padding: 0.6rem 4rem 0.4rem 1.6rem;
     }
   }
 }

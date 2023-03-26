@@ -15,3 +15,15 @@ export const getCommentedPosts = (userId: string) =>
 
 export const getReswirkedPosts = (userId: string) =>
   requester.get(`${BASE_URL}/user/${userId}/reswirks`);
+
+export const followUser = (userToFollow: string, userFollowing: string) =>
+  requester.post(`${BASE_URL}/user/${userToFollow}/follow`, {
+    userToFollow,
+    userFollowing,
+  });
+
+export const unfollowUser = (userToUnfollow: string, userUnfollowing: string) =>
+  requester.post(`${BASE_URL}/user/${userToUnfollow}/unfollow`, {
+    userToUnfollow,
+    userUnfollowing,
+  });
