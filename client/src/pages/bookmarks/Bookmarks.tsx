@@ -12,7 +12,7 @@ const Bookmarks = () => {
       <section className="bookmarks__section--nav nav">
         <SideNavigation />
       </section>
-      <section className="bookmarks__section">
+      <section className="bookmarks__section main__section--center center__main--section">
         <div className="bookmarks__info">
           <h2 className="bookmarks__headin--name name">Bookmarks</h2>
           <h4 className="bookmarks__headin--name name swirks__number">

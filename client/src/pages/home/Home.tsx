@@ -27,7 +27,7 @@ const Home = () => {
       <section className="home__section--nav nav">
         <SideNavigation />
       </section>
-      <section className="home__posts">
+      <section className="home__posts main__section--center center__main--section">
         {posts.map((post: IPostCreated) => {
           return <Post key={post._id} post={post} />;
         })}

@@ -112,7 +112,7 @@ const PostDetails = () => {
           })}
         </section>
       </section>
-      <section className="details__section--trends trends">
+      <section className="details__section--trends trends hidden__trends">
         <section className="search__section">
           <Search />
         </section>

@@ -79,7 +79,7 @@ const Profile = () => {
       <section className="profile__section--nav nav">
         <SideNavigation />
       </section>
-      <section className="profile__section">
+      <section className="profile__section main__section--center center__main--section">
         <div className="profile__info">
           <h2 className="profile__headin--name name">{dummyData.name}</h2>
           <h4 className="profile__headin--name name swirks__number">
