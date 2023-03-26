@@ -72,3 +72,19 @@ export const getBookmarks = async (req, res) => {
         return res.status(500).json({ message: error });
     }
 }
+
+export const followUser = async (req, res) => {
+    const { userToFollow, userFollowing } = req.body;
+
+    try {
+        await userService.addFollower(userToFollow, userFollowing);
+        const response = {
+            userFollowed: userToFollow,
+            followedBy: userFollowing
+        }
+        return res.status(200).json(response);
+
+    } catch (error) {
+        return res.status(500).json({ message: error });
+    }
+}
