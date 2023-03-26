@@ -7,7 +7,8 @@ import {
     getComments,
     getReswirks,
     getBookmarks,
-    followUser
+    followUser,
+    unfollowUser
 } from '../controllers/user-controller.js';
 
 
@@ -20,5 +21,6 @@ router.get("/user/:userId/comments", getComments);
 router.get("/user/:userId/reswirks", getReswirks);
 router.get("/user/:userId/bookmarks", getBookmarks);
 router.post("/user/:userToFollow/follow", followUser);
+router.post("/user/:userToFollow/unfollow", unfollowUser);
 
 export default router;
