@@ -88,3 +88,20 @@ export const followUser = async (req, res) => {
         return res.status(500).json({ message: error });
     }
 }
+
+
+export const unfollowUser = async (req, res) => {
+    const { userToUnfollow, userUnfollowing } = req.body;
+
+    try {
+        await userService.removeFollower(userToUnfollow, userUnfollowing);
+        const response = {
+            userFollowed: userToUnfollow,
+            followedBy: userUnfollowing
+        }
+        return res.status(200).json(response);
+
+    } catch (error) {
+        return res.status(500).json({ message: error });
+    }
+}
