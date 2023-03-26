@@ -21,3 +21,9 @@ export const followUser = (userToFollow: string, userFollowing: string) =>
     userToFollow,
     userFollowing,
   });
+
+export const unfollowUser = (userToUnfollow: string, userUnfollowing: string) =>
+  requester.post(`${BASE_URL}/user/${userToUnfollow}/unfollow`, {
+    userToUnfollow,
+    userUnfollowing,
+  });
