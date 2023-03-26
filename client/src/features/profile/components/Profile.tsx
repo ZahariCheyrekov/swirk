@@ -16,6 +16,7 @@ import {
   getCommentedPosts,
   getReswirkedPosts,
   followUser,
+  unfollowUser,
 } from "../api/user-api";
 import { getUserId } from "../../../services/localStorage";
 
@@ -80,7 +81,8 @@ const Profile = () => {
     const userInStorage = getUserId();
 
     if (userInStorage) {
-      await followUser(user._id, userInStorage);
+      // await followUser(user._id, userInStorage);
+      await unfollowUser(user._id, userInStorage);
     }
   };
 
