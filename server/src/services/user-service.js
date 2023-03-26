@@ -27,6 +27,24 @@ export const getUserReswirkedPosts = async (userId) => {
     return posts;
 }
 
+export const addFollower = async (userToFollow, userFollowing) => {
+    followUser(userToFollow, userFollowing);
+
+    return User.findByIdAndUpdate(
+        { _id: userToFollow },
+        { $push: { followers: userFollowing } },
+        { runValidators: true }
+    );
+}
+
+export const followUser = async (userToFollow, userFollowing) => {
+    await User.findByIdAndUpdate(
+        { _id: userFollowing },
+        { $push: { following: userToFollow } },
+        { runValidators: true }
+    );
+}
+
 export const createUserPost = (userId, postId) => {
     return User.findByIdAndUpdate(
         { _id: userId },
