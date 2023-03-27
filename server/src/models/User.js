@@ -34,6 +34,11 @@ const userSchema = mongoose.Schema({
         },
         required: [true, 'Password is required']
     },
+    bio: {
+        type: String,
+        maxLength: [250, 'Bio must be less than 250 characters'],
+        default: ""
+    },
     profilePicture: {
         type: String,
         default: ""
