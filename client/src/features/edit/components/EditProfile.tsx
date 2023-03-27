@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from "react";
 
 import { uploadImage } from "../../post/services/uploadImage";
-<<<<<<< HEAD
-// TODO: Extract this request in the global folder
 import { getUserData, editUserData } from "../../profile/api/user-api";
+import { IUserInStorage } from "../../../interfaces/User";
 
-=======
-import Navigation from "../../../layouts/nav/Navigation";
->>>>>>> 4bbf8494d8ae6b513a12b113cab4ca6661d6b898
 import Footer from "../../../layouts/footer/Footer";
 import Navigation from "../../../layouts/nav/Navigation";
 
 import "./EditProfile.scss";
-import { IUserInStorage } from "../../../interfaces/User";
 
 const EditProfile = () => {
   const [imgCover, setImgCover] = useState<any>("");
