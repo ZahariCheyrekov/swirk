@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { uploadImage } from "../../post/services/uploadImage";
+import Navigation from "../../../layouts/nav/Navigation";
 import Footer from "../../../layouts/footer/Footer";
 
 import "./EditProfile.scss";
@@ -44,6 +45,7 @@ const EditProfile = () => {
 
   return (
     <>
+      <Navigation />
       <main className="main__edit">
         <section className="edit__section">
           <h2 className="edit__heading--name edit__heading">Edit profile</h2>
