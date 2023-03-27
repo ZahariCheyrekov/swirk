@@ -2,6 +2,7 @@ import express from 'express';
 
 import {
     getUser,
+    editUser,
     getSwirks,
     getLikes,
     getComments,
@@ -15,6 +16,7 @@ import {
 const router = express.Router();
 
 router.get("/user/:nickname", getUser);
+router.post("/user/:nickname/edit", editUser);
 router.get("/user/:userId/swirks", getSwirks);
 router.get("/user/:userId/likes", getLikes);
 router.get("/user/:userId/comments", getComments);

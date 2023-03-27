@@ -27,6 +27,11 @@ export const getUserReswirkedPosts = async (userId) => {
     return posts;
 }
 
+export const editUser = async (userNickname, userData) => {
+    const user = await getUserByNickname(userNickname);
+    return User.findByIdAndUpdate(user._id, userData);
+}
+
 export const addFollower = async (userToFollow, userFollowing) => {
     followUser(userToFollow, userFollowing);
 
