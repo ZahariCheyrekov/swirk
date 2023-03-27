@@ -1,13 +1,31 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { uploadImage } from "../../post/services/uploadImage";
+// TODO: Extract this request in the global folder
+import { getUserData, editUserData } from "../../profile/api/user-api";
+
 import Footer from "../../../layouts/footer/Footer";
+import Navigation from "../../../layouts/nav/Navigation";
 
 import "./EditProfile.scss";
+import { IUserInStorage } from "../../../interfaces/User";
 
 const EditProfile = () => {
   const [imgCover, setImgCover] = useState<any>("");
   const [profileImg, setProfileImg] = useState<any>("");
+  const [user, setUser] = useState<IUserInStorage>();
+  const [userData, setUserData] = useState({
+    bio: "",
+    fullName: "",
+  });
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const userFetched = await getUserData("zaharicheyrekov");
+      setUser(userFetched);
+    };
+    fetchUser();
+  }, []);
 
   const handleOnChange = (changeEvent: React.ChangeEvent<HTMLInputElement>) => {
     const reader = new FileReader();
@@ -42,8 +60,25 @@ const EditProfile = () => {
     // TODO: Create implementation for user edit
   };
 
+  const handleDataChange = (
+    ev:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    setUserData({ ...userData, [ev.target.name]: ev.target.value });
+  };
+
+  const handleEditSubmit = async () => {
+    console.log(userData);
+    if (user) {
+      const editedUser = await editUserData(user.nickname, userData);
+      console.log(editedUser);
+    }
+  };
+
   return (
     <>
+      <Navigation />
       <main className="main__edit">
         <section className="edit__section">
           <h2 className="edit__heading--name edit__heading">Edit profile</h2>
@@ -88,14 +123,16 @@ const EditProfile = () => {
           >
             <input
               type="text"
-              name="name"
+              name="fullName"
               placeholder="Name"
               className="auth__form--input auth__name name input"
+              onChange={handleDataChange}
             />
             <textarea
               name="bio"
               placeholder="Bio"
               className="edit__form--textarea edit__bio bio textarea"
+              onChange={handleDataChange}
             />
             <span className="edit__span--buttons span__buttons">
               <button className="edit__button--cancel edit__button cancel">
@@ -104,6 +141,7 @@ const EditProfile = () => {
               <button
                 className="edit__button--save edit__button save"
                 type="submit"
+                onClick={handleEditSubmit}
               >
                 Save
               </button>
