@@ -13,6 +13,20 @@ export const getUser = async (req, res) => {
     }
 }
 
+export const editUser = async (req, res) => {
+    const { nickname } = req.params;
+    const { userData } = req.body;
+
+    try {
+        await userService.editUser(nickname, userData);
+        return res.status(200).json({
+            success: true, personEdited: nickname
+        });
+    } catch (error) {
+        return res.status(500).json({ message: error });
+    }
+}
+
 export const getSwirks = async (req, res) => {
     const { userId } = req.params;
 
