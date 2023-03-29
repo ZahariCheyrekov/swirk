@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { createPost } from "../api/post-api";
 import { uploadImage } from "../services/uploadImage";
-import { getUser } from "../../../services/localStorage";
+import { UserContext } from "../../../contexts/UserContext";
 
 import Navigation from "../../../layouts/nav/Navigation";
 import Footer from "../../../layouts/footer/Footer";
@@ -12,6 +12,7 @@ import "./CreatePost.scss";
 
 const CreatePost = () => {
   const navigate = useNavigate();
+  const { user } = useContext(UserContext);
   const [postContent, setPostContent] = useState("");
   const [imageSrc, setImageSrc] = useState<String | ArrayBuffer | null>("");
 
@@ -40,8 +41,6 @@ const CreatePost = () => {
     if (imageSrc) {
       imageUrl = await uploadImage(ev);
     }
-
-    const user = getUser();
 
     if (user) {
       const post = await createPost({
