@@ -1,10 +1,14 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import swirkLogo from "../../assets/swirk-dark.png";
+import { UserContext } from "../../contexts/UserContext";
 
 import "./Navigation.scss";
 
 const Navigation = () => {
+  const { user } = useContext(UserContext);
+
   return (
     <section className="navigation__section">
       <nav className="navigation__nav">
@@ -25,18 +29,26 @@ const Navigation = () => {
           <li className="nav__li--item">
             <Link to={"/explore"}>Explore</Link>
           </li>
-          <li className="nav__li--item">
-            <Link to={"/bookmarks"}>Bookmarks</Link>
-          </li>
-          <li className="nav__li--item">
-            <Link to={"/create"}>Create</Link>
-          </li>
-          <li className="nav__li--item">
-            <Link to={"/register"}>Register</Link>
-          </li>
-          <li className="nav__li--item">
-            <Link to={"/login"}>Login</Link>
-          </li>
+          {user._id && (
+            <>
+              <li className="nav__li--item">
+                <Link to={"/bookmarks"}>Bookmarks</Link>
+              </li>
+              <li className="nav__li--item">
+                <Link to={"/create"}>Create</Link>
+              </li>
+            </>
+          )}
+          {!user._id && (
+            <>
+              <li className="nav__li--item">
+                <Link to={"/register"}>Register</Link>
+              </li>
+              <li className="nav__li--item">
+                <Link to={"/login"}>Login</Link>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
     </section>
