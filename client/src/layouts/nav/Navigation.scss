@@ -1,7 +1,14 @@
 @import "../../scss/variables.scss";
 
 .navigation__section {
+  position: relative;
   box-shadow: 0 0.25rem 0.25rem $gray-hover-color;
+}
+
+.nav__menu--icon.menu__icon {
+  display: none;
+  align-self: center;
+  font-size: 2.6rem;
 }
 
 .navigation__nav {
@@ -26,5 +33,38 @@
     gap: 1.4rem;
 
     font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: $tablet-width) {
+  .nav__menu--icon.menu__icon {
+    display: block;
+  }
+
+  .nav__list {
+    position: fixed;
+    min-height: 100vh;
+    width: 50%;
+
+    top: 10%;
+    right: 0;
+    z-index: 110;
+
+    flex-direction: column;
+    background-color: $white-color;
+  }
+
+  .navigation__section::after {
+    content: "";
+    position: fixed;
+
+    width: 100%;
+    top: 10%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: black;
+    opacity: 0.7;
   }
 }
