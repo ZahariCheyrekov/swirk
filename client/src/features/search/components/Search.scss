@@ -1,6 +1,6 @@
-@import "../../scss/variables.scss";
+@import "../../../scss/variables.scss";
 
-.explore__main {
+.search__main {
   display: flex;
   justify-content: space-between;
 
@@ -41,7 +41,7 @@
   }
 }
 
-.explore__main .explore__section {
+.search__main .search__section--sec {
   width: 40%;
   border-left: 2px solid $gray-hover-color;
   border-right: 2px solid $gray-hover-color;

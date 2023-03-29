@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import VisibilityIcon from "@mui/icons-material/Visibility";
 
+import { UserContext } from "../../../contexts/UserContext";
 import { IUser } from "../../../interfaces/User";
 import { loginUser, registerUser } from "../services/auth-service";
 
@@ -23,6 +24,7 @@ const Auth = () => {
     password: "",
     repeatPassword: "",
   });
+  const { updateUser } = useContext(UserContext);
 
   const handleIconClick = () => {
     setShowPassword((prevState) => !prevState);
@@ -44,6 +46,8 @@ const Auth = () => {
     } else {
       user = await registerUser(userData);
     }
+
+    updateUser(user);
 
     if (user) {
       navigate("/");

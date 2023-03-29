@@ -1,5 +1,5 @@
 import SideNavigation from "../../components/navigation/SideNavigation";
-import Search from "../../components/search/Search";
+import Search from "../../components/search/SearchField";
 import Trends from "../../components/trends/Trends";
 import FooterSmall from "../../layouts/footer/FooterSmall";
 

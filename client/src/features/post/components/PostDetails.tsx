@@ -4,7 +4,7 @@ import PhotoSizeSelectActualOutlinedIcon from "@mui/icons-material/PhotoSizeSele
 
 import SideNavigation from "../../../components/navigation/SideNavigation";
 import Post from "../../../components/post/Post";
-import Search from "../../../components/search/Search";
+import Search from "../../../components/search/SearchField";
 import Trends from "../../../components/trends/Trends";
 
 import { IPostCreate, IPostCreated } from "../../../interfaces/Post";

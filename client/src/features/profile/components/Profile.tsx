@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import SideNavigation from "../../../components/navigation/SideNavigation";
-import Search from "../../../components/search/Search";
+import Search from "../../../components/search/SearchField";
 import Trends from "../../../components/trends/Trends";
 
 import dummyData from "./dummy.json";

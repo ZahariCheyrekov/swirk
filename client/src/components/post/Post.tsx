@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
@@ -9,6 +9,7 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 import { IPostCreated } from "../../interfaces/Post";
+import { UserContext } from "../../contexts/UserContext";
 import {
   likePost,
   dislikePost,
@@ -17,12 +18,12 @@ import {
   bookmarkPost,
   deletePost,
 } from "../../api/globalAPI";
-import { getUser } from "../../services/localStorage";
 
 import "./Post.scss";
 
 const Post = ({ post }: { post: IPostCreated }) => {
   const navigate = useNavigate();
+  const { user } = useContext(UserContext);
   const [postLikes, setPostLikes] = useState<string[]>(post.likes);
   const [postReswirks, setPostReswirks] = useState<string[]>(post.reswirks);
   const [moreActionsOpen, setMoreActionsOpen] = useState<Boolean>(false);
@@ -35,8 +36,6 @@ const Post = ({ post }: { post: IPostCreated }) => {
     ev: React.MouseEvent<HTMLLIElement, MouseEvent>
   ) => {
     ev.preventDefault();
-
-    const user = getUser();
 
     if (user) {
       const isLiked = postLikes.some((like) => like === user._id);
@@ -56,8 +55,6 @@ const Post = ({ post }: { post: IPostCreated }) => {
     ev: React.MouseEvent<HTMLLIElement, MouseEvent>
   ) => {
     ev.preventDefault();
-
-    const user = getUser();
 
     if (user) {
       const isReswirked = postReswirks.some((reswirk) => reswirk === user._id);
@@ -84,8 +81,6 @@ const Post = ({ post }: { post: IPostCreated }) => {
   };
 
   const handleBookmark = () => {
-    const user = getUser();
-
     bookmarkPost(post._id, user?._id);
   };
 
