@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
+import MenuIcon from "@mui/icons-material/Menu";
+
 import swirkLogo from "../../assets/swirk-dark.png";
 import { UserContext } from "../../contexts/UserContext";
 
@@ -19,6 +21,7 @@ const Navigation = () => {
             className="navigation__img--logo img__logo"
           />
         </article>
+        <MenuIcon className="nav__menu--icon menu__icon" />
         <ul className="nav__list">
           <li className="nav__li--item">
             <Link to={"/home"}>Home</Link>
