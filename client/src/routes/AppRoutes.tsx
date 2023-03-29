@@ -6,6 +6,7 @@ import About from "../pages/about/About";
 import Auth from "../features/auth/components/Auth";
 import CreatePost from "../features/post/components/CreatePost";
 import Explore from "../pages/explore/Explore";
+import Search from "../features/search/components/Search";
 import Bookmarks from "../features/bookmarks/components/Bookmarks";
 import Profile from "../features/profile/components/Profile";
 import EditProfile from "../features/edit/components/EditProfile";
@@ -21,6 +22,7 @@ const AppRoutes = () => {
       <Route path="/register" element={<Auth />} />
       <Route path="/create" element={<CreatePost />} />
       <Route path="/explore" element={<Explore />} />
+      <Route path="/search" element={<Search />} />
       <Route path="/bookmarks" element={<Bookmarks />} />
       <Route path="/:nickname" element={<Profile />} />
       <Route path="/:nickname/likes" element={<Profile />} />
