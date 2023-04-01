@@ -8,6 +8,9 @@ import CreatePost from "../features/post/components/CreatePost";
 import Explore from "../pages/explore/Explore";
 import Search from "../features/search/components/Search";
 import Bookmarks from "../features/bookmarks/components/Bookmarks";
+import Messages from "../pages/messages/Messages";
+import Lists from "../pages/lists/Lists";
+import Notifications from "../pages/notifications/Notifications";
 import Profile from "../features/profile/components/Profile";
 import EditProfile from "../features/edit/components/EditProfile";
 import PostDetails from "../features/post/components/PostDetails";
@@ -25,6 +28,9 @@ const AppRoutes = () => {
       <Route path="/explore" element={<Explore />} />
       <Route path="/search" element={<Search />} />
       <Route path="/bookmarks" element={<Bookmarks />} />
+      <Route path="/messages" element={<Messages />} />
+      <Route path="/lists" element={<Lists />} />
+      <Route path="/notifications" element={<Notifications />} />
       <Route path="/profile/:nickname" element={<Profile />} />
       <Route path="/profile/:nickname/likes" element={<Profile />} />
       <Route path="/profile/:nickname/comments" element={<Profile />} />
