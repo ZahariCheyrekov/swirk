@@ -1,0 +1,30 @@
+@import "../../scss/variables.scss";
+
+.main__messages {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+
+  .messages__comming--soon {
+    width: 40%;
+    height: 100%;
+    text-align: center;
+
+    border-left: 2px solid $gray-hover-color;
+    border-right: 2px solid $gray-hover-color;
+  }
+
+  .messages__wrapper--content .heading__soon {
+    font-weight: normal;
+  }
+
+  .trends {
+    flex-basis: 35%;
+
+    .search__section {
+      max-width: 28rem;
+      margin-right: 2rem;
+      padding: 0.6rem 4rem 0.4rem 1.6rem;
+    }
+  }
+}
