@@ -1,12 +1,16 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import swirkLogo from "../../assets/swirk-dark.png";
 import ProfileBubble from "../bubble/ProfileBubble";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import { UserContext } from "../../contexts/UserContext";
 
 import "./SideNavigation.scss";
 
 const SideNavigation = () => {
+  const { user } = useContext(UserContext);
+
   return (
     <aside className="navigation__aside">
       <ul className="navigation__list">
@@ -100,7 +104,7 @@ const SideNavigation = () => {
         </li>
         <li className="navigation__li--item list__item">
           <Link
-            to={"/profile"}
+            to={`/profile/${user.nickname}`}
             className="navigation__link--wrapper link__wrapper link"
           >
             <article className="navigation__article--item article">
