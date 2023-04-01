@@ -4,6 +4,7 @@ import * as authService from '../services/auth-service.js';
 import { signJwtToken } from '../lib/jwt.js';
 import { SALT } from '../constants/app-constants.js';
 import { INVALID_CREDENTIALS, PASSWORDS_DONT_MATCH, USER_ALREADY_EXISTS, USER_DOESNT_EXIST } from '../constants/errors.js';
+import { createUserResultObject } from '../utils/userResult.js';
 
 
 export const login = async (req, res) => {
@@ -24,16 +25,9 @@ export const login = async (req, res) => {
 
         const token = signJwtToken({ email: existingUser.email, id: existingUser._id });
 
-        const result = {
-            _id: existingUser._id,
-            email: existingUser.email,
-            fullName: existingUser.fullName,
-            nickname: existingUser.nickname,
-            profilePicture: existingUser.profilePicture,
-            token: token
-        }
+        const userObject = createUserResultObject(existingUser, token);
 
-        return res.status(200).json(result);
+        return res.status(200).json(userObject);
 
     } catch (error) {
         return res.status(500).json({ message: error });
@@ -56,23 +50,15 @@ export const register = async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(password, SALT);
 
-
         const fullName = `${firstName} ${lastName}`;
         const nickname = fullName.toLowerCase().split(' ').join('');
         const newUser = await authService.createUser({ email, password: hashedPassword, fullName, nickname });
 
         const token = signJwtToken({ email: newUser.email, id: newUser._id });
 
-        const result = {
-            _id: newUser._id,
-            email: newUser.email,
-            fullName: newUser.fullName,
-            nickname: newUser.nickname,
-            profilePicture: newUser.profilePicture,
-            token: token
-        }
+        const userObject = createUserResultObject(newUser, token);
 
-        return res.status(200).json(result);
+        return res.status(200).json(userObject);
 
     } catch (error) {
         return res.status(500).json({ message: error });
