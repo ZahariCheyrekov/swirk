@@ -11,7 +11,7 @@ export const UserContextProvider = ({ children }: { children: any }) => {
   const { user, updateUser } = useUser();
 
   return (
-    <UserContext.Provider value={{ user, updateUser }}>
+    <UserContext.Provider value={{ user, updateUser}}>
       {children}
     </UserContext.Provider>
   );
