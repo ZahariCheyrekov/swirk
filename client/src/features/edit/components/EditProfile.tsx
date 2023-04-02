@@ -31,14 +31,12 @@ const EditProfile = () => {
 
     reader.onload = function (onLoadEvent) {
       if (onLoadEvent.target) {
+        const loadEventResult =
+          onLoadEvent.target.result !== null ? onLoadEvent.target.result : "";
         if (changeEvent.target.className.includes("profile__cover")) {
-          setImgCover(
-            onLoadEvent.target.result !== null ? onLoadEvent.target.result : ""
-          );
+          setImgCover(loadEventResult);
         } else {
-          setProfileImg(
-            onLoadEvent.target.result !== null ? onLoadEvent.target.result : ""
-          );
+          setProfileImg(loadEventResult);
         }
       }
     };
@@ -55,7 +53,7 @@ const EditProfile = () => {
     if (profileImg) {
       imageUrl = await uploadImage(ev);
     }
-
+console.log(imageUrl);
     // TODO: Create implementation for user edit
   };
 
