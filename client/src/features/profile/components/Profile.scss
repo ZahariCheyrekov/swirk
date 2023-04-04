@@ -1,6 +1,7 @@
 @import "../../../scss/variables.scss";
 
 .profile__main {
+  height: 100%;
   display: flex;
   justify-content: space-between;
 
@@ -40,6 +41,14 @@
       color: $light-gray-color;
       font-weight: normal;
     }
+  }
+
+  .no__posts {
+    width: 75%;
+    margin: 4rem auto;
+   
+    text-align: center;
+    font-size: 2rem;
   }
 }
 
@@ -155,5 +164,11 @@
 
   .profile__main .trends {
     width: 35%;
+  }
+}
+
+@media only screen and (max-width: 940px) {
+  .profile__main {
+    flex-direction: column-reverse;
   }
 }
