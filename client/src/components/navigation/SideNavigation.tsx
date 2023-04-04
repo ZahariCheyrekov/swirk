@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+
 import swirkLogo from "../../assets/swirk-dark.png";
 import ProfileBubble from "../bubble/ProfileBubble";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import { UserContext } from "../../contexts/UserContext";
 
 import "./SideNavigation.scss";
@@ -120,6 +122,7 @@ const SideNavigation = () => {
             to={"/create"}
             className="navigation__link--wrapper link__wrapper link swirk__create"
           >
+            <AddCircleOutlineIcon className="navigation__icon--add icon__add icon__navigation--add"/>
             <h3 className="navigation__title--item title__item title">Swirk</h3>
           </Link>
         </li>
