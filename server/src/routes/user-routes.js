@@ -3,6 +3,7 @@ import express from 'express';
 import {
     getUser,
     editUser,
+    getSearchUsers,
     getSwirks,
     getLikes,
     getComments,
@@ -24,5 +25,6 @@ router.get("/user/:userId/reswirks", getReswirks);
 router.get("/user/:userId/bookmarks", getBookmarks);
 router.post("/user/:userToFollow/follow", followUser);
 router.post("/user/:userToFollow/unfollow", unfollowUser);
+router.get("/search/:userToSearch", getSearchUsers);
 
 export default router;

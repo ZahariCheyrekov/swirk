@@ -17,3 +17,29 @@ export const createUserResultObject = (user, token) => {
         token: token
     }
 }
+
+export const getSearchedUsers = (usersArray) => {
+    if (usersArray.length === 0) return [];
+
+    const arrayResult = [];
+
+    usersArray.forEach(user => {
+        const {
+            _id,
+            nickname,
+            followers,
+            following,
+            profilePicture
+        } = user;
+
+        arrayResult.push({
+            _id,
+            nickname,
+            followers,
+            following,
+            profilePicture
+        });
+    });
+
+    return arrayResult;
+}
