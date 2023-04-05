@@ -17,8 +17,10 @@ const Bookmarks = () => {
 
   useEffect(() => {
     const fetchBookmarks = async () => {
-      const fetchedBookmarks = await getBookmarks(user?._id);
-      setBookmarks(fetchedBookmarks);
+      if (user._id) {
+        const fetchedBookmarks = await getBookmarks(user._id);
+        setBookmarks(fetchedBookmarks);
+      }
     };
     fetchBookmarks();
   }, [user?._id]);
@@ -35,9 +37,11 @@ const Bookmarks = () => {
             @{user?.nickname}
           </h4>
         </div>
-        {bookmarks.map((post: IPostCreated) => {
-          return <Post key={post._id} post={post} />;
-        })}
+        {bookmarks.length > 0
+          ? bookmarks.map((post: IPostCreated) => {
+              return <Post key={post._id} post={post} />;
+            })
+          : "No bookmarks yet"}
       </section>
       <section></section>
       <section className="bookmarks__section--trends trends">
