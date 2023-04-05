@@ -59,6 +59,10 @@
   }
 }
 
+.navigation__icon--add.icon__add.icon__navigation--add {
+  display: none;
+}
+
 .MuiSvgIcon-fontSizeMedium.home__icon.css-i4bv87-MuiSvgIcon-root {
   font-size: 1.7rem;
   margin-left: -0.2rem;
@@ -106,6 +110,42 @@
 
   .bubble__article--user.user__data,
   .bubble__article--icon {
+    display: none;
+  }
+
+  .navigation__icon--add.icon__add.icon__navigation--add {
+    font-size: 1.8rem;
+    margin-left: 0.6rem;
+    display: block;
+  }
+}
+
+@media only screen and (max-width: $wider-device-width) {
+  .navigation__list {
+    display: flex;
+    justify-content: space-evenly;
+
+    max-width: 100%;
+    height: 7vh;
+
+    background-color: $white-color;
+    border-top: 0.1rem solid $gray-hover-color;
+
+    .profile__bubble--link {
+      margin-top: 0;
+      margin-left: 0.6rem;
+    }
+  }
+
+  .navigation__li--item.list__item {
+    margin: 0;
+    padding: 0;
+    align-self: center;
+  }
+
+  .navigation__list .navigation__li--item.list__item:nth-child(4),
+  .navigation__list .navigation__li--item.list__item:nth-child(5),
+  .navigation__list .navigation__li--item.list__item:nth-child(7) {
     display: none;
   }
 }
