@@ -1,3 +1,5 @@
+import { IPostCreated } from "./Post";
+
 export interface IUser {
   firstName: string;
   lastName: string;
@@ -7,10 +9,19 @@ export interface IUser {
 }
 
 export interface IUserInStorage {
-  fullName: string;
-  nickname: string;
+  bio: string;
+  bookmarks: Array<string>;
+  commentedPosts: Array<IPostCreated>;
+  coverPicture: string;
+  createdPosts: Array<string>;
   email: string;
-  _id: string;
-  token: string;
+  followers: Array<string>;
+  following: Array<string>;
+  fullName: string;
+  likedPosts: Array<string>;
+  nickname: string;
   profilePicture: string;
+  reswirkedPosts: Array<string>;
+  token: string;
+  _id: string;
 }
