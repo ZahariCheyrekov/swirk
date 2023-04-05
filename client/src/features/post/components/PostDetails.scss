@@ -113,3 +113,21 @@
     padding: 0.4rem 1rem;
   }
 }
+
+@media only screen and (max-width: $longer-device-width) {
+  .details__section {
+    width: 100%;
+    max-width: unset;
+  }
+}
+
+@media only screen and (max-width: $wider-device-width) {
+  .details__main {
+    height: 100%;
+    flex-direction: column-reverse;
+  }
+
+  .details__section {
+    overflow-y: auto;
+  }
+}
