@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PhotoSizeSelectActualOutlinedIcon from "@mui/icons-material/PhotoSizeSelectActualOutlined";
 
+import defaultPhoto from "../../../assets/default-photo.png";
 import SideNavigation from "../../../components/navigation/SideNavigation";
 import Post from "../../../components/post/Post";
 import Search from "../../../components/search/SearchField";
@@ -75,7 +76,9 @@ const PostDetails = () => {
             <article className="details__article--reply article__reply">
               <div className="details__wrapper--image wrapper__img">
                 <img
-                  src={user?.profilePicture}
+                  src={
+                    user?.profilePicture ? user?.profilePicture : defaultPhoto
+                  }
                   alt={post.userName}
                   className="details__img--user img__user"
                 />
