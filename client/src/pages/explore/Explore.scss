@@ -46,3 +46,29 @@
   border-left: 2px solid $gray-hover-color;
   border-right: 2px solid $gray-hover-color;
 }
+
+@media only screen and (max-width: $wider-device-width) {
+  .explore__main {
+    flex-direction: column-reverse;
+
+    .section__footer {
+      display: none;
+    }
+  }
+
+  .explore__section {
+    height: 93vh;
+
+    .trends {
+      display: flex;
+
+      .trends__section {
+        width: 100%;
+      }
+    }
+
+    .search__section {
+      display: none;
+    }
+  }
+}
