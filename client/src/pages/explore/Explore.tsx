@@ -11,7 +11,7 @@ const Explore = () => {
       <section className="explore__section--nav nav">
         <SideNavigation />
       </section>
-      <section className="explore__section">
+      <section className="explore__section main__section--center center__main--section">
         <section className="explore__section--trends trends">
           <section className="search__section">
             <Search />
