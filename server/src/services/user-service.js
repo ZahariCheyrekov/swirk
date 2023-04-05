@@ -27,6 +27,10 @@ export const getUserReswirkedPosts = async (userId) => {
     return posts;
 }
 
+export const getUsersByText = async (userToSearch) => {
+    return User.find({ nickname: { $regex: userToSearch, $options: 'i' } });
+}
+
 export const editUser = async (userNickname, userData) => {
     const user = await getUserByNickname(userNickname);
     return User.findByIdAndUpdate(user._id, userData);
