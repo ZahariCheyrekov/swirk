@@ -1,7 +1,7 @@
 import * as requester from "../../../api/requester";
 import { BASE_URL } from "../../../constants/url";
 
-export const getUserData = (userNickname: string) =>
+export const getUserData = (userNickname: string | undefined) =>
   requester.get(`${BASE_URL}/user/${userNickname}`);
 
 export const editUserData = (userNickname: string, userData: Object) =>

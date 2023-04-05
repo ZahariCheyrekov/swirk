@@ -27,6 +27,7 @@ const AppRoutes = () => {
       <Route path="/create" element={<CreatePost />} />
       <Route path="/explore" element={<Explore />} />
       <Route path="/search" element={<Search />} />
+      <Route path="/search/:nickname" element={<Search />} />
       <Route path="/bookmarks" element={<Bookmarks />} />
       <Route path="/messages" element={<Messages />} />
       <Route path="/lists" element={<Lists />} />

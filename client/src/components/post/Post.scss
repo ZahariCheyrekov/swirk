@@ -121,6 +121,11 @@
   margin: auto 0;
 }
 
+.like__icon.post__icon.liked {
+  background-color: $pink-color;
+  color: $white-color;
+}
+
 .action__item {
   &:hover {
     // comment

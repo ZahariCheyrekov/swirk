@@ -59,7 +59,7 @@
   }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: $longer-device-width) {
   .trends.hidden__trends {
     display: none;
   }

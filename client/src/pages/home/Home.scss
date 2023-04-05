@@ -6,7 +6,6 @@
   height: 100%;
 
   .home__posts {
-    width: 40%;
     height: 100%;
     border-left: 2px solid $gray-hover-color;
     border-right: 2px solid $gray-hover-color;
@@ -20,5 +19,20 @@
       margin-right: 2rem;
       padding: 0.6rem 4rem 0.4rem 1.6rem;
     }
+  }
+}
+
+@media only screen and (max-width: $wider-device-width) {
+  .main__home {
+    flex-direction: column-reverse;
+  }
+
+  .trends {
+    display: none;
+  }
+
+  .home__posts {
+    width: 100%;
+    margin-right: unset;
   }
 }

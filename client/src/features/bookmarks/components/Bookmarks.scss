@@ -3,6 +3,7 @@
 .bookmarks__main {
   display: flex;
   justify-content: space-between;
+  height: 100%;
 
   .trends {
     flex-basis: 35%;
@@ -39,5 +40,15 @@
       color: $light-gray-color;
       font-weight: normal;
     }
+  }
+}
+
+@media only screen and (max-width: $wider-device-width) {
+  .bookmarks__main {
+    flex-direction: column-reverse;
+  }
+
+  .bookmarks__section {
+    height: 100%;
   }
 }
