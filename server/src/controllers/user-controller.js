@@ -1,5 +1,6 @@
 import * as userService from '../services/user-service.js';
 import * as postService from '../services/post-service.js';
+import { getSearchedUsers } from '../utils/userResult.js';
 
 export const getUser = async (req, res) => {
     const { nickname } = req.params;
@@ -22,6 +23,20 @@ export const editUser = async (req, res) => {
         return res.status(200).json({
             success: true, personEdited: nickname
         });
+    } catch (error) {
+        return res.status(500).json({ message: error });
+    }
+}
+
+export const getSearchUsers = async (req, res) => {
+    const { userToSearch } = req.params;
+
+    try {
+        const users = await userService.getUsersByText(userToSearch);
+
+        const usersArray = getSearchedUsers(users);
+        return res.status(200).json(usersArray);
+
     } catch (error) {
         return res.status(500).json({ message: error });
     }
