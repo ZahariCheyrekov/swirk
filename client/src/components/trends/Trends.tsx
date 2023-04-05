@@ -100,7 +100,7 @@ const Trends = () => {
               147K Swirks
             </h5>
           </li>
-          <Link to={"/trends"}>
+          <Link to={"/explore"}>
             <li className="trends__li--item list__item trend">Show more</li>
           </Link>
         </ul>
