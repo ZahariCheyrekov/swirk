@@ -46,3 +46,45 @@
   border-left: 2px solid $gray-hover-color;
   border-right: 2px solid $gray-hover-color;
 }
+
+.search__list--results {
+  margin-top: 1.2rem;
+}
+
+.search__result {
+  display: flex;
+  padding: 1rem 0;
+
+  border-bottom: 0.1rem solid $gray-hover-color;
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
+
+  .user__content {
+    width: 100%;
+  }
+
+  .user__picture {
+    width: 4rem;
+    height: 4rem;
+
+    margin-right: 1.2rem;
+    border-radius: 50%;
+  }
+
+  .user__nickname {
+    margin-top: 0;
+    color: $light-gray-color;
+    font-weight: normal;
+  }
+
+  .wrapper__following {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  &:hover {
+    background-color: $gray-hover-color;
+  }
+}
