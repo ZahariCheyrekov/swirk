@@ -25,3 +25,11 @@ export interface IUserInStorage {
   token: string;
   _id: string;
 }
+
+export interface IUserSearch {
+  _id: string;
+  nickname: string;
+  profilePicture: string;
+  followers: Array<string>;
+  following: Array<string>;
+}
