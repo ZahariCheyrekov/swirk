@@ -54,7 +54,7 @@
 .search__result {
   display: flex;
   padding: 1rem 0;
-
+ 
   border-bottom: 0.1rem solid $gray-hover-color;
   transition: all ease-in-out 0.2s;
   cursor: pointer;
@@ -66,7 +66,7 @@
   .user__picture {
     width: 4rem;
     height: 4rem;
-
+    
     margin-right: 1.2rem;
     border-radius: 50%;
   }
@@ -86,5 +86,24 @@
 
   &:hover {
     background-color: $gray-hover-color;
+  }
+}
+
+@media only screen and (max-width: $wider-device-width) {
+  .search__main {
+    flex-direction: column-reverse;
+  }
+
+  .search__section {
+    height: 93vh;
+    width: 100%;
+  }
+
+  .section__footer {
+    display: none;
+  }
+
+  .trends {
+    display: flex;
   }
 }
